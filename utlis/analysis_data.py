@@ -52,7 +52,13 @@ class Analysis_Data(object):
                             self.words_dict['empty'] = 1
                         break
 
-                    
+                    if line[i]==' ':
+                        continue
+
+
+
+                    # if line[i]=='”':
+                    #     print('出现%s,文件%s,行内容：%s' % (line[i], file, line))
 
                     if self._find_repetition(line[i], '，', ','): continue
                     if self._find_repetition(line[i], '？', '?'): continue
@@ -60,6 +66,7 @@ class Analysis_Data(object):
                     if self._find_repetition(line[i], '！', '!'): continue
                     if self._find_repetition(line[i], '（', '('): continue
                     if self._find_repetition(line[i], '）', ')'): continue
+                    if self._find_repetition(line[i], '；', ';'): continue
                     #self._find_repetition(line[i], '', '(')
 
 
