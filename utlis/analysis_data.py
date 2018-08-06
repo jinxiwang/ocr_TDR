@@ -33,13 +33,15 @@ class Analysis_Data(object):
 
         for line in lines:
             comma_num = 0
-            for i in range(len(line)):
+            for i in range(len(line.replace('\n', ''))):
                 # 开始解析label字符
                 if comma_num >= 4:
-                    # if line[i].isupper():
-                    #     print('出现大写%s,文件%s,行内容：%s'%(line[i],file,line))
-                    # if line[i].islower():
-                    #     print('出现小写%s,文件%s,行内容：%s'%(line[i],file,line))
+
+                    # 用于检测是否包含大小写字符
+                    if line[i].isupper():
+                        print('出现大写%s,文件%s,行内容：%s'%(line[i], file, line))
+                    if line[i].islower():
+                        print('出现小写%s,文件%s,行内容：%s'%(line[i], file, line))
 
                     if line[i] == 'e' and line[i+1]=='m' and line[i+2]=='p' and line[i+3]=='t' \
                             and line[i+4]=='y':
@@ -49,21 +51,18 @@ class Analysis_Data(object):
                         else:
                             self.words_dict['empty'] = 1
                         break
-                    if line[i] == '\"':
-                        if line[i] in self.words_dict.keys():
-                            self.words_dict[line[i]] += 1
-                        else:
-                            self.words_dict[line[i]] = 1
 
-                        print('出现问题%s,文件%s,行内容：%s' % (line[i], file, line))
-                        break
+                    
 
-                    if line[i] == '」':
-                        print('出现问题%s,文件%s,行内容：%s' % (line[i], file, line))
-                    if line[i] == 13:
-                        print("1111111111111111111111111111111")
-                    if line[i] == 10:
-                        print('2222222222222222222222222222222')
+                    if self._find_repetition(line[i], '，', ','): continue
+                    if self._find_repetition(line[i], '？', '?'): continue
+                    #self._find_repetition(line[i], '。', '')
+                    if self._find_repetition(line[i], '！', '!'): continue
+                    if self._find_repetition(line[i], '（', '('): continue
+                    if self._find_repetition(line[i], '）', ')'): continue
+                    #self._find_repetition(line[i], '', '(')
+
+
 
                     if line[i] in self.words_dict.keys():
                         self.words_dict[line[i]] += 1
@@ -94,10 +93,38 @@ class Analysis_Data(object):
                 num = num + 1
         return self.label
 
+    def _find_repetition(self, line, chinese, engish):
+        if line == chinese or line == engish:
+            if chinese in self.words_dict.keys():
+                self.words_dict[chinese] += 1
+            else:
+                self.words_dict[chinese] = 1
+
+            return True
+        return False
+
 
 if __name__ == "__main__":
     a = Analysis_Data('../../train/')
     a.word2dict()
     a.datal2csv('../word_label.csv')
+
+    path = '../onehot.txt'
+    read = open(path, 'r')
+    b = read.read()
+    b = eval(b)
+
+    have = []
+    no = []
+
+    for i in a.words_dict.keys():
+        if i in b.keys():
+            have.append(i)
+        else:
+            no.append(i)
+
+
+    print(no)
+
 
 
