@@ -1,0 +1,6 @@
+# pycharm
+*.xml
+*/.idea/
+.idea
+*.pyc
+*.png
