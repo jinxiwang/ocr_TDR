@@ -1,6 +1,7 @@
 import os
 import cv2
 import numpy as np
+import progressbar as pb
 
 RAW_DATASET = '../../train/'
 SAVE_DATASET = '../../dataset/'
@@ -53,6 +54,8 @@ def words_list2label_list(words_list):
     for words in words_list:
         list = []
         for i in words:
+            if i == ' ' or i == '　':
+                continue
             i = __english_symbol(i)
             if i in all_label_dict.keys():
                 list.append(all_label_dict[i])
@@ -124,19 +127,68 @@ def extract_bbox_words(txt_file):
 
 def make_dataset():
     listdir = os.listdir(RAW_DATASET)
+    pbar = pb.ProgressBar(maxval=len(listdir), widgets=['处理进度', pb.Bar('=', '[', ']'), '', pb.Percentage()])
     listdir.sort()
+    i = 0
     for file in listdir:
+        i += 1
+        pbar.update(i)
         if 'jpg' in file:
             txt_file = file.replace('jpg', 'txt')
             bbox_list, words_list = extract_bbox_words(txt_file)
             cut_img_and_save_label(file, bbox_list, words_list)
+    pbar.finish()
 
-make_dataset()
-f = open('../dataset_dict.txt', 'w')
-f.write(str(dataset_dict))
-f.close()
+def sparse_tuple_from(sequences, dtype=np.int32):
+    """
+        Inspired (copied) from https://github.com/igormq/ctc_tensorflow_example/blob/master/utils.py
+    """
 
+    indices = []
+    values = []
+
+    for n, seq in enumerate(sequences):
+        indices.extend(zip([n]*len(seq), [i for i in range(len(seq))]))
+        values.extend(seq)
+
+    indices = np.asarray(indices, dtype=np.int64)
+    values = np.asarray(values, dtype=dtype)
+    shape = np.asarray([len(sequences), np.asarray(indices).max(0)[1]+1], dtype=np.int64)
+
+    return indices, values, shape
+
+# a = []
+#
+# for i in range(1,10):
+#     z = [1,2,3,4,5,6]
+#     x = 'a'*i
+#     c = [j for j in range(i)]
+#     a.append((z,x,c))
+#
+# z,x,c = zip(*a)
+# batch_y = np.reshape(
+#                 np.array(x),
+#                 (-1)
+#             )
+# # # print(z)
+# # print(x)
+# print(c)
+# # print(batch_y)
+# indices, values, shape = sparse_tuple_from(
+#                 np.reshape(
+#                     np.array(c),
+#                     (-1)
+#                 )
+#             )
+# print(indices.shape)
+# print(values.shape)
+# print(shape)
 # bbox_list, words_list = extract_bbox_words('0.txt')
 # img_name_list, label_list = cut_img_and_save_label('0.jpg', bbox_list, words_list)
 # print(img_name_list)
 # print(label_list)
+
+make_dataset()
+f = open('../dataset_label.txt', 'w')
+f.write(str(dataset_dict))
+f.close()

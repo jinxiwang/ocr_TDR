@@ -17,6 +17,9 @@ class Transform_Data(object):
         提取文本数据中的汉子，并统计每个汉子出现的次数
         :return:
         """
+        if self.words_dir is None:
+            assert 0, print('数度读取地址为空')
+
         files_list = os.listdir(self.words_dir)
         files_list.sort()
         for file in files_list:
@@ -55,8 +58,10 @@ class Transform_Data(object):
                     #         self.words_dict['empty'] = 1
                     #     break
                     #
-                    # if line[i]==' ':
-                    #     continue
+                    if line[i] == ' ':
+                        continue
+                    if line[i] == '　':
+                        continue
 
                     # if line[i]=='”':
                     #     print('出现%s,文件%s,行内容：%s' % (line[i], file, line))
@@ -85,6 +90,8 @@ class Transform_Data(object):
             for key in self.words_dict.keys():
                 one_hot[key] = num
                 num = num + 1
+        else:
+            assert 0,print('无数据字典')
 
         f = open(save_file, 'w')
         f.write(str(one_hot))
@@ -106,18 +113,14 @@ class Transform_Data(object):
 
 
 if __name__ == "__main__":
-    a = Transform_Data()
-    # dict = a.word2dict()
-    # writer = open("../word_num_dict.txt", 'w')
-    # writer.write(str(dict))
-    # writer.close()
+    a = Transform_Data('../../train/')
+    dict = a.word2dict()
 
-    read = open("../word_num_dict.txt", 'r')
-    data = read.read()
-    data_dict = eval(data)
-    #a.analysis_data_distribution(data_dict)
-    #a.dict2csv(data_dict)
+    writer = open("../word_num_dict.txt", 'w')
+    writer.write(str(dict))
+    writer.close()
+    # a.datal2onehot('../word_onehot.txt')
 
-    #a.analysis_data_distribution(dict)
-
-    #a.datal2onehot('../word_label.txt')
+    # read = open("../word_num_dict.txt", 'r')
+    # data = read.read()
+    # data_dict = eval(data)
