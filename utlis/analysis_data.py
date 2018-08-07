@@ -76,9 +76,15 @@ class Analysis_Data(object):
                 print("文件%s,问题行:%s"%(file, line))
 
     def datal2onehot(self, save_file):
+        one_hot = {}
+        if self.words_dict is not None:
+            num = 0
+            for key in self.words_dict.keys():
+                one_hot[key] = num
+                num = num + 1
 
         f = open(save_file, 'w')
-        f.write(str(self.words_dict))
+        f.write(str(one_hot))
         f.close()
 
     def _find_repetition(self, line, chinese, engish):
@@ -96,23 +102,23 @@ if __name__ == "__main__":
     a = Analysis_Data('../../train/')
     a.word2dict()
     a.datal2onehot('../word_label.txt')
-
-    path = '../onehot.txt'
-    read = open(path, 'r')
-    b = read.read()
-    b = eval(b)
-
-    have = []
-    no = []
-
-    for i in a.words_dict.keys():
-        if i in b.keys():
-            have.append(i)
-        else:
-            no.append(i)
-
-
-    print(no)
+    #
+    # path = '../onehot.txt'
+    # read = open(path, 'r')
+    # b = read.read()
+    # b = eval(b)
+    #
+    # have = []
+    # no = []
+    #
+    # for i in a.words_dict.keys():
+    #     if i in b.keys():
+    #         have.append(i)
+    #     else:
+    #         no.append(i)
+    #
+    #
+    # print(no)
 
 
 
