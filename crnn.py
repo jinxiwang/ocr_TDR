@@ -9,9 +9,9 @@ class CRNN(object):
 
         self._input_height = int(net_params['input_height'])
         self._input_width = int(net_params['input_width'])
-        self._class_num = int(net_params['class_num'])
+        self._class_num = int(net_params['classes_num'])
 
-        self._inputs =inputs
+        self._inputs = inputs
         self._batch_size = batch_size
         self._seq_len = seq_len
 
@@ -20,12 +20,13 @@ class CRNN(object):
         构建网络
         :return:
         """
-        # 进入cnn网络层
+        # 进入cnn网络层 shape [batch, length, 32 ,1]
         cnn_out = self._cnn(self._inputs)
 
         # 送入rnn前将cnn进行reshape
         reshaped_cnn_output = tf.reshape(cnn_out, [self._batch_size, -1, 512])
         max_char_count = reshaped_cnn_output.get_shape().as_list()[1]
+        print(max_char_count)
 
         crnn_model = self._rnn(reshaped_cnn_output, self._seq_len)
         logits = tf.reshape(crnn_model, [-1, 512])
@@ -40,11 +41,10 @@ class CRNN(object):
         # 网络层输出
         net_output = tf.transpose(logits, (1, 0, 2))
 
+        # 解析网络输出
         decoded, log_prob = tf.nn.ctc_beam_search_decoder(net_output, self._seq_len)
 
-        dense_decoded = tf.sparse_tensor_to_dense(decoded[0], default_value=-1)
-
-        return net_output, dense_decoded, max_char_count
+        return net_output, decoded, max_char_count
 
     def _cnn(self, inputs):
         """
