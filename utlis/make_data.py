@@ -188,7 +188,10 @@ def sparse_tuple_from(sequences, dtype=np.int32):
 # print(img_name_list)
 # print(label_list)
 
-make_dataset()
-f = open('../dataset_label.txt', 'w')
-f.write(str(dataset_dict))
-f.close()
+if __name__ == "__main__":
+    pass
+    # make_dataset()
+    # f = open('../data/dataset_label.txt', 'w')
+    # f.write(str(dataset_dict))
+    # f.close()
+

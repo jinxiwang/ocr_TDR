@@ -35,11 +35,34 @@ class Analysis_Data(object):
         return self.csv_data.word.size
 
     def analysis_which_greater(self, num):
+        """
+        获取当前出现次数大于num的汉字和数量
+        :param num:
+        :return:
+        """
         greater = self.csv_data.loc[(self.csv_data["word_num"] > num)]
         all = self.csv_data.word_num.size
         num = greater.word_num.size
         print(num,all-num)
         return greater, num
+
+    def analysis_longgest_label(self, dataset_label_dict):
+        """
+        获取最长的长度,和key
+        :return:
+        """
+        length = 0
+        keys = []
+
+        for i in dataset_label_dict.keys():
+            if length < len(dataset_label_dict[i]):
+                keys.clear()
+                keys.append(i)
+                length = len(dataset_label_dict[i])
+            elif length == len(dataset_label_dict[i]):
+                keys.append(i)
+
+        return length,keys
 
     def _dict2csv(self):
         """
@@ -53,13 +76,22 @@ class Analysis_Data(object):
         return csv_data
 
 if __name__ == '__main__':
-    read = open("../word_num_dict.txt", 'r')
+    read = open("../data/word_num_dict.txt", 'r')
     data = read.read()
     data_dict = eval(data)
 
     a = Analysis_Data(data_dict)
-    print(a.analysis_words_num())
-    greater, num = a.analysis_which_greater(1)
 
-    a.analysis_data_distribution()
+    # print(a.analysis_words_num())
+    # greater, num = a.analysis_which_greater(1)
+    # a.analysis_data_distribution()
+
+    f = open("../data/dataset_label.txt", 'r')
+    data = f.read()
+    data_dict = eval(data)
+    length, keys = a.analysis_longgest_label(data_dict)
+    print(keys)
+    print(length)
+    for k in keys:
+        print(k, data_dict[k])
 
