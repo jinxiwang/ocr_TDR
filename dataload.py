@@ -85,13 +85,9 @@ class Dataload(object):
 
         indices = []
         values = []
-        print(sequences)
         for n, seq in enumerate(sequences):
-            print(seq)
-            print(n)
             indices.extend(zip([n] * len(seq), [i for i in range(len(seq))]))
             values.extend(seq)
-            print('???')
 
         indices = np.asarray(indices, dtype=np.int64)
         values = np.asarray(values, dtype=dtype)

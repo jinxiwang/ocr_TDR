@@ -7,7 +7,7 @@ from utlis.net_cfg_parser import parser_cfg_file
 
 class Train_CRNN(object):
 
-    def __init__(self, pre_train=False, start_step=0):
+    def __init__(self, pre_train=False):
         net_params, train_params = parser_cfg_file('./net.cfg')
 
         self.input_height = int(net_params['input_height'])
@@ -18,7 +18,17 @@ class Train_CRNN(object):
         self._train_logger_init()
         self._pre_train = pre_train
         self._model_save_path = str(train_params['model_save_path'])
-        self._start_step = start_step
+
+        if self._pre_train:
+            ckpt = tf.train.latest_checkpoint(self._model_save_path)
+            print(ckpt)
+            if ckpt:
+                print('Checkpoint is valid')
+                self._start_step = int(ckpt.split('-')[1])
+                print(self._start_step)
+                self._model_save_path = ckpt
+        else:
+            self._model_save_path = self._model_save_path + 'ckpt'
 
         self._inputs = tf.placeholder(tf.float32, [self.batch_size, self.input_width, 32, 1])
 
@@ -44,7 +54,8 @@ class Train_CRNN(object):
 
         accuracy = self._compute_accuracy(self._label, self._decoded[0])
 
-        data = Dataload(self.batch_size, './data/dataset_label.txt')
+        data = Dataload(self.batch_size, './data/dataset_label.txt',
+                        img_height=self.input_height, img_width=self.input_width)
 
         # 保存模型
         saver = tf.train.Saver()
@@ -52,6 +63,7 @@ class Train_CRNN(object):
         with tf.Session() as sess:
             if self._pre_train:
                 saver.restore(sess, self._model_save_path)
+
             else:
                 sess.run(tf.global_variables_initializer())
 
@@ -99,5 +111,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN()
+    train = Train_CRNN(pre_train=False)
     train.train()
