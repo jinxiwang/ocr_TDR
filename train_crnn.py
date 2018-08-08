@@ -20,15 +20,18 @@ class Train_CRNN(object):
         self._model_save_path = str(train_params['model_save_path'])
 
         if self._pre_train:
-            ckpt = tf.train.latest_checkpoint(self._model_save_path)
-            print(ckpt)
+            ckpt = tf.train.checkpoint_exists(self._model_save_path)
             if ckpt:
-                print('Checkpoint is valid')
-                self._start_step = int(ckpt.split('-')[1])
-                print(self._start_step)
-                self._model_save_path = ckpt
+                print('Checkpoint is valid...')
+                f = open('./model/train_step.txt', 'r')
+                step = f.readline()
+                self._start_step = int(step)
+                f.close()
+            else:
+                assert 0, print('Checkpoint is invalid...')
         else:
-            self._model_save_path = self._model_save_path + 'ckpt'
+            self._start_step = 0
+            self._model_save_path = self._model_save_path
 
         self._inputs = tf.placeholder(tf.float32, [self.batch_size, self.input_width, 32, 1])
 
@@ -66,8 +69,8 @@ class Train_CRNN(object):
 
             else:
                 sess.run(tf.global_variables_initializer())
-
-            for step in range(1, self._max_iterators):
+            epoch = 0
+            for step in range(self._start_step + 1, self._max_iterators):
                 batch_data, batch_label = data.get_train_batch()
 
                 feed_dict = {self._inputs: batch_data,
@@ -80,9 +83,13 @@ class Train_CRNN(object):
                     # accuracy = sess.run(accuracy, feed_dict=feed_dict)
                     self.train_logger.info('step:%d, train accuracy: %6f, total loss: %6f' % (step, 0, train_loss))
 
-                if step % 50 == 0:
+                if step%50 == 0 or data.epoch != epoch:
+                    data.epoch = epoch
                     self.train_logger.info('saving model...')
-                    save_path = saver.save(sess, self._model_save_path, global_step=(self._start_step + step))
+                    f = open('./model/train_step.txt', 'w')
+                    f.write(str(self._start_step + step))
+                    f.close()
+                    save_path = saver.save(sess, self._model_save_path)
                     self.train_logger.info('model saved at %s' % save_path)
 
 
@@ -111,5 +118,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN(pre_train=False)
+    train = Train_CRNN(pre_train=True)
     train.train()
