@@ -4,7 +4,7 @@ import numpy as np
 import progressbar as pb
 
 RAW_DATASET = '../../train/'
-SAVE_DATASET = '../../dataset/'
+SAVE_DATASET = '/home/tony/ocr/dataset/'
 
 dataset_dict = {}
 
@@ -47,7 +47,7 @@ def words_list2label_list(words_list):
     """
     label_list = []
 
-    read = open('../word_label.txt', 'r')
+    read = open('../data/word_onehot.txt', 'r')
     all_label_dict = read.read()
     all_label_dict = eval(all_label_dict)
 
@@ -139,24 +139,6 @@ def make_dataset():
             cut_img_and_save_label(file, bbox_list, words_list)
     pbar.finish()
 
-def sparse_tuple_from(sequences, dtype=np.int32):
-    """
-        Inspired (copied) from https://github.com/igormq/ctc_tensorflow_example/blob/master/utils.py
-    """
-
-    indices = []
-    values = []
-
-    for n, seq in enumerate(sequences):
-        indices.extend(zip([n]*len(seq), [i for i in range(len(seq))]))
-        values.extend(seq)
-
-    indices = np.asarray(indices, dtype=np.int64)
-    values = np.asarray(values, dtype=dtype)
-    shape = np.asarray([len(sequences), np.asarray(indices).max(0)[1]+1], dtype=np.int64)
-
-    return indices, values, shape
-
 # a = []
 #
 # for i in range(1,10):
@@ -189,9 +171,9 @@ def sparse_tuple_from(sequences, dtype=np.int32):
 # print(label_list)
 
 if __name__ == "__main__":
-    pass
-    # make_dataset()
-    # f = open('../data/dataset_label.txt', 'w')
-    # f.write(str(dataset_dict))
-    # f.close()
+    #pass
+    make_dataset()
+    f = open('../data/dataset_label.txt', 'w')
+    f.write(str(dataset_dict))
+    f.close()
 
