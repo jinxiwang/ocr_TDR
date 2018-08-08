@@ -1,4 +1,3 @@
-
 import numpy as np
 import tensorflow as tf
 import scipy.misc as sm
@@ -6,7 +5,7 @@ import scipy.misc as sm
 
 class Dataload(object):
 
-    def __init__(self, batch_size, label_path,img_height=32, img_width=1688):
+    def __init__(self, batch_size, label_path,img_height=32, img_width=1050):
         self.batch_size = batch_size
         self.input_img_height = img_height
         self.input_img_width = img_width
@@ -41,7 +40,7 @@ class Dataload(object):
             batch_label.append(self.data_dict[self.img_path_list[self.current_index]])
             self.current_index += 1
 
-        batch_label = self._sparse_tuple_from(np.reshape(np.array(batch_label), (-1)))
+        batch_label = self._sparse_tuple_from(batch_label)
 
         if self.current_index + self.batch_size == len(self.img_path_list):
             self.current_index = 0
@@ -49,8 +48,8 @@ class Dataload(object):
             self.current_index += self.batch_size
 
         batch_data = np.reshape(batch_data, [self.batch_size,
-                                             self.input_img_height,
                                              self.input_img_width,
+                                             self.input_img_height,
                                              1])
 
         return batch_data, batch_label
@@ -86,10 +85,13 @@ class Dataload(object):
 
         indices = []
         values = []
-
+        print(sequences)
         for n, seq in enumerate(sequences):
+            print(seq)
+            print(n)
             indices.extend(zip([n] * len(seq), [i for i in range(len(seq))]))
             values.extend(seq)
+            print('???')
 
         indices = np.asarray(indices, dtype=np.int64)
         values = np.asarray(values, dtype=dtype)
@@ -98,8 +100,8 @@ class Dataload(object):
         return indices, values, shape
 
 if __name__ == "__main__":
-    a = Dataload(61, './data/dataset_label.txt')
+    a = Dataload(2, './data/dataset_label.txt')
 
     b, c = a.get_train_batch()
 
-    print(b.shape)
+    #print(c)
