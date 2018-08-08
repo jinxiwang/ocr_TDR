@@ -4,3 +4,8 @@
 .idea
 *.pyc
 *.png
+
+
+# model
+*ckpt*
+checkpoint
