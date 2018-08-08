@@ -69,6 +69,41 @@ class Analysis_Data(object):
 
         return length, keys
 
+    def analysis_width_label(self):
+        path = '/home/tony/ocr/dataset/'
+
+        f = open('../data/dataset_label.txt', 'r')
+        label_dict = f.read()
+        label_dict = eval(label_dict)
+
+        img_path_list = list(label_dict.keys())
+        width_label_dict = {}
+        img_num = len(img_path_list)
+
+        for i in img_path_list:
+            img = cv2.imread(i)
+            shape = np.shape(img)
+            width = shape[1]
+            label_length = len(label_dict[i])
+            if width in width_label_dict.keys():
+                width_label_dict[width] = [width_label_dict[width][0]+label_length,
+                                           width_label_dict[width][1]+1]
+            else:
+                width_label_dict[width] = [label_length, 1]
+
+        width_list = list(width_label_dict.keys())
+        width_list.sort()
+        label_list = [width_label_dict[width_list[i]][0]/width_label_dict[width_list[i]][1] for i in range(len(width_list))]
+
+        fig = plt.figure(1)
+        # 子表1绘制加速度传感器数据
+        plt.subplot()
+        plt.xlabel('width')
+        plt.ylabel('avg label')
+        plt.plot(width_list, label_list)
+        plt.show()
+
+
     def analysis_img_mess(self):
         """
         分析图像的信息
@@ -90,17 +125,19 @@ class Analysis_Data(object):
         width_list.sort()
         max_width = width_list[-1]
         min_width = width_list[0]
+        print(max_width)
+        print(min_width)
 
         x = [i for i in range(max_width)]
         plt.subplot(121)
         plt.xlabel('width')
         plt.ylabel('img number')
-        plt.hist(width_list, 30)
+        plt.hist(width_list, 10)
 
         plt.subplot(122)
         plt.xlabel('height')
         plt.ylabel('img number')
-        plt.hist(height_list, 30)
+        plt.hist(height_list, 10)
         # num_bins = 10
         #
         # fig, ax = plt.subplots()
@@ -123,7 +160,7 @@ class Analysis_Data(object):
         words_list = list(self.words_dict.keys())
         words_num_list = [self.words_dict[key] for key in words_list]
 
-        csv_data = pd.DataFrame({'word':words_list, 'word_num':words_num_list})
+        csv_data = pd.DataFrame({'word': words_list, 'word_num': words_num_list})
         return csv_data
 
 if __name__ == '__main__':
@@ -132,7 +169,8 @@ if __name__ == '__main__':
     data_dict = eval(data)
 
     a = Analysis_Data(data_dict)
-    a.analysis_img_mess()
+    #a.analysis_img_mess()
+    a.analysis_width_label()
 
     # 查看出现次数大于num的汉字个数
     # print(a.analysis_words_num())
