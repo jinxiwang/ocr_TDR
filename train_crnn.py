@@ -1,5 +1,6 @@
 import time
 import logging
+import numpy as np
 import tensorflow as tf
 from crnn import CRNN
 from dataload import Dataload
@@ -51,11 +52,17 @@ class Train_CRNN(object):
         return accuracy
 
     def train(self):
-        loss = tf.nn.ctc_loss(self._label, self._net_output, self._seq_len)
-        loss = tf.reduce_mean(loss)
-        train_op = tf.train.AdamOptimizer(self._learning_rate).minimize(loss)
 
-        accuracy = self._compute_accuracy(self._label, self._decoded[0])
+        with tf.name_scope('loss'):
+            loss = tf.nn.ctc_loss(self._label, self._net_output, self._seq_len)
+            loss = tf.reduce_mean(loss)
+            tf.summary.scalar("loss", loss)
+
+        with tf.name_scope('optimizer'):
+            train_op = tf.train.AdamOptimizer(self._learning_rate).minimize(loss)
+
+        with tf.name_scope('accuracy'):
+            accuracy = tf.reduce_mean(tf.edit_distance(tf.cast(self._decoded[0], tf.int32), self._label))
 
         data = Dataload(self.batch_size, './data/dataset_label.txt',
                         img_height=self.input_height, img_width=self.input_width)
@@ -63,28 +70,37 @@ class Train_CRNN(object):
         # 保存模型
         saver = tf.train.Saver()
 
+        # tensorboard
+        merged = tf.summary.merge_all()
+
         with tf.Session() as sess:
             if self._pre_train:
                 saver.restore(sess, self._model_save_path)
 
             else:
                 sess.run(tf.global_variables_initializer())
+
+            train_writer = tf.summary.FileWriter("./tensorboard_logs/", sess.graph)
+
             epoch = 0
             for step in range(self._start_step + 1, self._max_iterators):
                 batch_data, batch_label = data.get_train_batch()
 
                 feed_dict = {self._inputs: batch_data,
                              self._label: batch_label,
-                             self._seq_len: [self._max_char_count]*self.batch_size}
+                             self._seq_len: [self._max_char_count] * self.batch_size}
+
+                summ = sess.run(merged, feed_dict=feed_dict)
+                train_writer.add_summary(summ, global_step=step)
+
                 sess.run(train_op, feed_dict=feed_dict)
 
                 if step%10 == 0:
                     train_loss = sess.run(loss, feed_dict=feed_dict)
-                    # accuracy = sess.run(accuracy, feed_dict=feed_dict)
-                    self.train_logger.info('step:%d, train accuracy: %6f, total loss: %6f' % (step, 0, train_loss))
+                    self.train_logger.info('step:%d, total loss: %6f' % (step, train_loss))
 
-                if step%50 == 0 or data.epoch != epoch:
-                    data.epoch = epoch
+                if step%50 == 0:
+                    epoch = data.epoch
                     self.train_logger.info('saving model...')
                     f = open('./model/train_step.txt', 'w')
                     f.write(str(self._start_step + step))
@@ -92,6 +108,11 @@ class Train_CRNN(object):
                     save_path = saver.save(sess, self._model_save_path)
                     self.train_logger.info('model saved at %s' % save_path)
 
+                if step%1000 == 0:
+                    self.train_logger.info('compute accuracy...')
+                    accuracy = sess.run(accuracy, feed_dict=feed_dict)
+                    self.train_logger.info('step:%d, train accuracy: %6f' % (step, accuracy))
+            train_writer.close()
 
     def _train_logger_init(self):
         """
@@ -118,5 +139,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN(pre_train=True)
+    train = Train_CRNN(pre_train=False)
     train.train()
