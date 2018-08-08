@@ -5,44 +5,53 @@ from utlis.net_cfg_parser import parser_cfg_file
 
 class CRNN(object):
 
-    def __init__(self, inputs, seq_len,batch_size, trainable=False, pretrain=False):
-        net_params, train_params = parser_cfg_file('./net.cfg')
+    def __init__(self, net_params, inputs, seq_len, batch_size, trainable=False, pretrain=False):
 
-        self.input_height = int(net_params[''])
-        self.input_width = int(net_params[''])
-        self.class_num = int(net_params['class_num'])
+        self._input_height = int(net_params['input_height'])
+        self._input_width = int(net_params['input_width'])
+        self._class_num = int(net_params['class_num'])
 
-        self.inputs =inputs
-        self.batch_size = batch_size
-        self.seq_len = seq_len
-
+        self._inputs =inputs
+        self._batch_size = batch_size
+        self._seq_len = seq_len
 
     def construct_graph(self):
+        """
+        构建网络
+        :return:
+        """
         # 进入cnn网络层
-        cnn_out = self._cnn(self.inputs)
+        cnn_out = self._cnn(self._inputs)
 
-        # 送入rnn前进行网络reshape
-        reshaped_cnn_output = tf.reshape(cnn_out, [self.batch_size, -1, 512])
+        # 送入rnn前将cnn进行reshape
+        reshaped_cnn_output = tf.reshape(cnn_out, [self._batch_size, -1, 512])
         max_char_count = reshaped_cnn_output.get_shape().as_list()[1]
 
-        crnn_model = self._rnn(reshaped_cnn_output, self.seq_len)
+        crnn_model = self._rnn(reshaped_cnn_output, self._seq_len)
         logits = tf.reshape(crnn_model, [-1, 512])
 
-        W = tf.Variable(tf.truncated_normal([512, self.class_num], stddev=0.1), name="W")
-        b = tf.Variable(tf.constant(0., shape=[self.class_num]), name="b")
+        W = tf.Variable(tf.truncated_normal([512, self._class_num], stddev=0.1), name="W")
+        b = tf.Variable(tf.constant(0., shape=[self._class_num]), name="b")
 
         logits = tf.matmul(logits, W) + b
 
-        logits = tf.reshape(logits, [self.batch_size, -1, self.class_num])
+        logits = tf.reshape(logits, [self._batch_size, -1, self._class_num])
 
         # 网络层输出
-        logits = tf.transpose(logits, (1, 0, 2))
+        net_output = tf.transpose(logits, (1, 0, 2))
 
-        decoded, log_prob = tf.nn.ctc_beam_search_decoder(logits, self.seq_len)
+        decoded, log_prob = tf.nn.ctc_beam_search_decoder(net_output, self._seq_len)
 
         dense_decoded = tf.sparse_tensor_to_dense(decoded[0], default_value=-1)
 
+        return net_output, dense_decoded, max_char_count
+
     def _cnn(self, inputs):
+        """
+        cnn网络结构
+        :param inputs:
+        :return:
+        """
         # 64 / 3 x 3 / 1 / 1
         conv1 = tf.layers.conv2d(inputs=inputs, filters=64, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
 
@@ -90,9 +99,9 @@ class CRNN(object):
         :return:
         """
         with tf.variable_scope(None, default_name="bidirectional-rnn-1"):
-            # Forward
+            # 前向rnn
             lstm_fw_cell_1 = rnn.BasicLSTMCell(256)
-            # Backward
+            # 反向rnn
             lstm_bw_cell_1 = rnn.BasicLSTMCell(256)
 
             inter_output, _ = tf.nn.bidirectional_dynamic_rnn(lstm_fw_cell_1, lstm_bw_cell_1, inputs, seq_len,
@@ -101,14 +110,13 @@ class CRNN(object):
             inter_output = tf.concat(inter_output, 2)
 
         with tf.variable_scope(None, default_name="bidirectional-rnn-2"):
-            # Forward
+            # 前向rnn
             lstm_fw_cell_2 = rnn.BasicLSTMCell(256)
-            # Backward
+            # 反向rnn
             lstm_bw_cell_2 = rnn.BasicLSTMCell(256)
 
             outputs, _ = tf.nn.bidirectional_dynamic_rnn(lstm_fw_cell_2, lstm_bw_cell_2, inter_output, seq_len,
                                                          dtype=tf.float32)
-
             outputs = tf.concat(outputs, 2)
 
         return outputs
