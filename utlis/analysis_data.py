@@ -1,4 +1,5 @@
 import os
+import cv2
 import numpy as np
 import seaborn as sb
 import pandas as pd
@@ -46,11 +47,15 @@ class Analysis_Data(object):
         print(num,all-num)
         return greater, num
 
-    def analysis_longgest_label(self, dataset_label_dict):
+    def analysis_longgest_label(self):
         """
         获取最长的长度,和key
         :return:
         """
+        f = open("../data/dataset_label.txt", 'r')
+        data = f.read()
+        dataset_label_dict = eval(data)
+
         length = 0
         keys = []
 
@@ -62,7 +67,53 @@ class Analysis_Data(object):
             elif length == len(dataset_label_dict[i]):
                 keys.append(i)
 
-        return length,keys
+        return length, keys
+
+    def analysis_img_mess(self):
+        """
+        分析图像的信息
+        :return:
+        """
+        path = '/home/tony/ocr/dataset/'
+
+        width_list = []
+        height_list = []
+        img_num = len(os.listdir(path))
+
+        for i in os.listdir(path):
+            img = cv2.imread(path+i)
+            shape = np.shape(img)
+
+            height_list.append(shape[0])
+            width_list.append(shape[1])
+
+        width_list.sort()
+        max_width = width_list[-1]
+        min_width = width_list[0]
+
+        x = [i for i in range(max_width)]
+        plt.subplot(121)
+        plt.xlabel('width')
+        plt.ylabel('img number')
+        plt.hist(width_list, 30)
+
+        plt.subplot(122)
+        plt.xlabel('height')
+        plt.ylabel('img number')
+        plt.hist(height_list, 30)
+        # num_bins = 10
+        #
+        # fig, ax = plt.subplots()
+        #
+        # # the histogram of the data
+        # n, bins, patches = ax.hist(x, num_bins)
+        #
+        # ax.plot(10, width_list)
+        # ax.set_xlabel('width')
+        # ax.set_ylabel('img number')
+        # ax.set_title('Histogram of img message')
+        plt.show()
+
 
     def _dict2csv(self):
         """
@@ -81,17 +132,17 @@ if __name__ == '__main__':
     data_dict = eval(data)
 
     a = Analysis_Data(data_dict)
+    a.analysis_img_mess()
 
+    # 查看出现次数大于num的汉字个数
     # print(a.analysis_words_num())
     # greater, num = a.analysis_which_greater(1)
     # a.analysis_data_distribution()
 
-    f = open("../data/dataset_label.txt", 'r')
-    data = f.read()
-    data_dict = eval(data)
-    length, keys = a.analysis_longgest_label(data_dict)
-    print(keys)
-    print(length)
-    for k in keys:
-        print(k, data_dict[k])
+    # 查看label长度
+    # length, keys = a.analysis_longgest_label()
+    # print(keys)
+    # print(length)
+    # for k in keys:
+    #     print(k, data_dict[k])
 
