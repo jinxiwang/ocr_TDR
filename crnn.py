@@ -14,6 +14,7 @@ class CRNN(object):
         self._inputs = inputs
         self._batch_size = batch_size
         self._seq_len = seq_len
+        self._trainable = trainable
 
     def construct_graph(self):
         """
@@ -46,52 +47,56 @@ class CRNN(object):
 
         return net_output, decoded, max_char_count
 
+    def _conv2d(self,inputs,filters,padding,batch_norm,name):
+
+        if batch_norm:
+            activation = None
+        else:
+            activation = tf.nn.relu
+
+        kernel_initializer = tf.contrib.layers.variance_scaling_initializer()
+        bias_initializer = tf.constant_initializer(value=0.0)
+
+        top = tf.layers.conv2d(inputs,
+                               filters=filters,
+                               kernel_size=3,
+                               padding=padding,
+                               activation=activation,
+                               kernel_initializer=kernel_initializer,
+                               bias_initializer=bias_initializer,
+                               name=name)
+        if batch_norm:
+            top = tf.layers.batch_normalization(top, axis=3, training=self._trainable, name=name)
+            top = tf.nn.relu(top, name=name + '_relu')
+
+        return top
+
     def _cnn(self, inputs):
         """
         cnn网络结构
         :param inputs:
         :return:
         """
-        # 64 / 3 x 3 / 1 / 1
-        conv1 = tf.layers.conv2d(inputs=inputs, filters=64, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
+        conv1 = self._conv2d(inputs=inputs, filters=64, padding="valid",batch_norm=False,name='conv1')
+        conv2 = self._conv2d(inputs=conv1, filters=64, padding="same",batch_norm=True,name='conv2')
+        pool1 = tf.layers.max_pooling2d(inputs=conv2, pool_size=2, strides=[2,2], padding='valid')
 
-        # 2 x 2 / 1
-        pool1 = tf.layers.max_pooling2d(inputs=conv1, pool_size=[2, 2], strides=2)
+        conv3 = self._conv2d(inputs=pool1, filters=128, padding="same",batch_norm=True,name='conv3')
+        conv4 = self._conv2d(inputs=conv3, filters=128, padding="same",batch_norm=True, name='conv4')
+        pool2 = tf.layers.max_pooling2d(inputs=conv4, pool_size=2, strides=[2, 1], padding="valid")
 
-        # 128 / 3 x 3 / 1 / 1
-        conv2 = tf.layers.conv2d(inputs=pool1, filters=128, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
+        conv5 = self._conv2d(inputs=pool2, filters=256, padding="same", batch_norm=True, name='conv5')
+        conv6 = self._conv2d(inputs=conv5, filters=256, padding="same", batch_norm=True, name='conv6')
+        pool3 = tf.layers.max_pooling2d(inputs=conv6, pool_size=2, strides=[2, 1], padding="valid")
 
-        # 2 x 2 / 1
-        pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+        conv7 = self._conv2d(inputs=pool3, filters=512, padding="same", batch_norm=True, name='conv7')
+        conv8 = self._conv2d(inputs=conv7, filters=512, padding="same", batch_norm=True, name='conv8')
+        pool4 = tf.layers.max_pooling2d(inputs=conv8, pool_size=[3,1], strides=[3,1], padding="valid")
 
-        # 256 / 3 x 3 / 1 / 1
-        conv3 = tf.layers.conv2d(inputs=pool2, filters=256, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
+        features = tf.squeeze(pool4, axis=1, name='features')
+        cnn_output = tf.transpose(features, perm=[1, 0, 2], name='time_major')
 
-        # Batch normalization layer
-        bnorm1 = tf.layers.batch_normalization(conv3)
-
-        # 256 / 3 x 3 / 1 / 1
-        conv4 = tf.layers.conv2d(inputs=bnorm1, filters=256, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
-
-        # 1 x 2 / 1
-        pool3 = tf.layers.max_pooling2d(inputs=conv4, pool_size=[2, 2], strides=[1, 2], padding="same")
-
-        # 512 / 3 x 3 / 1 / 1
-        conv5 = tf.layers.conv2d(inputs=pool3, filters=512, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
-
-        # Batch normalization layer
-        bnorm2 = tf.layers.batch_normalization(conv5)
-
-        # 512 / 3 x 3 / 1 / 1
-        conv6 = tf.layers.conv2d(inputs=bnorm2, filters=512, kernel_size=[3, 3], padding="same", activation=tf.nn.relu)
-
-        # 1 x 2 / 2
-        pool4 = tf.layers.max_pooling2d(inputs=conv6, pool_size=[2, 2], strides=[1, 2], padding="same")
-
-        # 512 / 2 x 2 / 1 / 0
-        conv7 = tf.layers.conv2d(inputs=pool4, filters=512, kernel_size=[2, 2], padding="valid", activation=tf.nn.relu)
-
-        return conv7
+        return cnn_output
 
     def _rnn(self, inputs, seq_len):
         """

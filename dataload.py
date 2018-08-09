@@ -48,10 +48,11 @@ class Dataload(object):
         if self.current_index + 1 == len(self.img_path_list):
             self.current_index = 0
 
-        batch_data = np.reshape(batch_data, [self.batch_size,
-                                             self.input_img_width,
-                                             self.input_img_height,
-                                             1])
+        batch_data = batch_data.reshape([self.batch_size,
+                                         self.input_img_height,
+                                         self.input_img_width,
+                                         1])
+        #print(np.shape(batch_data))
 
         batch_data = batch_data / 255 * 2 - 1
 

@@ -19,7 +19,7 @@ class Test_CRNN(object):
 
     def _get_crnn_net(self, input_tensor, seq_len, batch_size):
 
-        crnn_net = CRNN(self.net_params, input_tensor, seq_len, batch_size)
+        crnn_net = CRNN(self.net_params, input_tensor, seq_len, batch_size, False)
         net_output, decoded, max_char_count = crnn_net.construct_graph()
 
         return net_output, decoded, max_char_count

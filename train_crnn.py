@@ -33,7 +33,7 @@ class Train_CRNN(object):
         else:
             self._start_step = 0
 
-        self._inputs = tf.placeholder(tf.float32, [self.batch_size, self.input_width, 32, 1])
+        self._inputs = tf.placeholder(tf.float32, [self.batch_size, 32, self.input_width, 1])
 
         # label
         self._label = tf.sparse_placeholder(tf.int32, name='label')
@@ -41,7 +41,7 @@ class Train_CRNN(object):
         # The length of the sequence [32] * 64
         self._seq_len = tf.placeholder(tf.int32, [None], name='seq_len')
 
-        crnn_net = CRNN(net_params, self._inputs, self._seq_len, self.batch_size)
+        crnn_net = CRNN(net_params, self._inputs, self._seq_len, self.batch_size, True)
         self._net_output, self._decoded, self._max_char_count = crnn_net.construct_graph()
         self.dense_decoded = tf.sparse_tensor_to_dense(self._decoded[0], default_value=-1)
 
@@ -115,7 +115,7 @@ class Train_CRNN(object):
                     epoch = data.epoch
                     self.train_logger.info('compute accuracy...')
                     train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
-                    self.train_logger.info('epoch:%d, train accuracy: %6f' % (epoch, train_accuracy))
+                    self.train_logger.info('epoch:%d, train accuracy: %6f' % (epoch, 1-train_accuracy))
             train_writer.close()
 
     def _train_logger_init(self):
