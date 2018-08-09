@@ -75,6 +75,7 @@ class Train_CRNN(object):
         with tf.Session() as sess:
             if self._pre_train:
                 saver.restore(sess, self._model_save_path)
+                print('load model from:', self._model_save_path)
             else:
                 sess.run(tf.global_variables_initializer())
 
@@ -142,5 +143,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN(pre_train=True)
+    train = Train_CRNN(pre_train=False)
     train.train()
