@@ -32,7 +32,6 @@ class Train_CRNN(object):
                 assert 0, print('Checkpoint is invalid...')
         else:
             self._start_step = 0
-            self._model_save_path = self._model_save_path
 
         self._inputs = tf.placeholder(tf.float32, [self.batch_size, self.input_width, 32, 1])
 
@@ -76,13 +75,12 @@ class Train_CRNN(object):
         with tf.Session() as sess:
             if self._pre_train:
                 saver.restore(sess, self._model_save_path)
-
             else:
                 sess.run(tf.global_variables_initializer())
 
             train_writer = tf.summary.FileWriter("./tensorboard_logs/", sess.graph)
 
-            epoch = 0
+            epoch = data.epoch
             for step in range(self._start_step + 1, self._max_iterators):
                 batch_data, batch_label = data.get_train_batch()
 
@@ -95,12 +93,16 @@ class Train_CRNN(object):
 
                 sess.run(train_op, feed_dict=feed_dict)
 
-                if step%10 == 0:
+                if step%20 == 0:
                     train_loss = sess.run(loss, feed_dict=feed_dict)
                     self.train_logger.info('step:%d, total loss: %6f' % (step, train_loss))
 
-                if step%50 == 0:
-                    epoch = data.epoch
+                # if step%10 == 0:
+                #     train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
+                #     self.train_logger.info('step:%d, train accuracy: %6f' % (epoch, train_accuracy))
+
+                if step%100 == 0:
+
                     self.train_logger.info('saving model...')
                     f = open('./model/train_step.txt', 'w')
                     f.write(str(self._start_step + step))
@@ -108,10 +110,11 @@ class Train_CRNN(object):
                     save_path = saver.save(sess, self._model_save_path)
                     self.train_logger.info('model saved at %s' % save_path)
 
-                if step%1000 == 0:
+                if epoch != data.epoch:
+                    epoch = data.epoch
                     self.train_logger.info('compute accuracy...')
                     train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
-                    self.train_logger.info('step:%d, train accuracy: %6f' % (step, train_accuracy))
+                    self.train_logger.info('epoch:%d, train accuracy: %6f' % (epoch, train_accuracy))
             train_writer.close()
 
     def _train_logger_init(self):
@@ -139,5 +142,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN(pre_train=False)
+    train = Train_CRNN(pre_train=True)
     train.train()

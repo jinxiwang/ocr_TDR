@@ -24,8 +24,8 @@ class Dataload(object):
         获取训练batch
         :return:
         """
-        if self.current_index + self.batch_size > len(self.img_path_list):
-            self.current_index = len(self.img_path_list) - self.batch_size
+        if self.current_index + self.batch_size +1 > len(self.img_path_list):
+            self.current_index = len(self.img_path_list) - self.batch_size - 1
             self.epoch += 1
 
         batch_data = np.zeros([self.batch_size,
@@ -42,10 +42,8 @@ class Dataload(object):
 
         batch_label = self._sparse_tuple_from(batch_label)
 
-        if self.current_index + self.batch_size == len(self.img_path_list):
+        if self.current_index + 1 == len(self.img_path_list):
             self.current_index = 0
-        else:
-            self.current_index += self.batch_size
 
         batch_data = np.reshape(batch_data, [self.batch_size,
                                              self.input_img_width,
@@ -96,8 +94,11 @@ class Dataload(object):
         return indices, values, shape
 
 if __name__ == "__main__":
-    a = Dataload(2, './data/dataset_label.txt')
+    a = Dataload(64, './data/dataset_label.txt')
+    for i in range(1000):
 
-    b, c = a.get_train_batch()
+        print('index', a.current_index)
+        print('epoch', a.epoch)
+        b, c = a.get_train_batch()
 
     #print(c)

@@ -42,7 +42,7 @@ class CRNN(object):
         net_output = tf.transpose(logits, (1, 0, 2))
 
         # 解析网络输出
-        decoded, log_prob = tf.nn.ctc_beam_search_decoder(net_output, self._seq_len)
+        decoded, log_prob = tf.nn.ctc_greedy_decoder(net_output, self._seq_len)
 
         return net_output, decoded, max_char_count
 
