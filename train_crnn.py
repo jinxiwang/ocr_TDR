@@ -110,8 +110,8 @@ class Train_CRNN(object):
 
                 if step%1000 == 0:
                     self.train_logger.info('compute accuracy...')
-                    accuracy = sess.run(accuracy, feed_dict=feed_dict)
-                    self.train_logger.info('step:%d, train accuracy: %6f' % (step, accuracy))
+                    train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
+                    self.train_logger.info('step:%d, train accuracy: %6f' % (step, train_accuracy))
             train_writer.close()
 
     def _train_logger_init(self):
