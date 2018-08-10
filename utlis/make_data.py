@@ -125,6 +125,42 @@ def extract_bbox_words(txt_file):
 
     return bbox_list, words_list
 
+def test_extract_bbox_name(txt_file):
+    """
+    从测试集中提取bbox和img name
+    :param txt_file:
+    :return:
+    """
+    bbox_list = []
+    name_list = []
+
+    reader = open("/home/tony/ocr/test_data_1/test_data/"+txt_file)
+    lines = reader.readlines()
+    for line in lines:
+        data = line.split(',')
+        bbox = [int(data[0]), int(data[1]), int(data[2]), int(data[3])]
+        bbox_list.append(bbox)
+        name_list.append(data[4].replace('\n', ''))
+
+    # print(bbox_list)
+    # print(name_list)
+
+    return bbox_list, name_list
+
+
+def test_cut_img(img_name, bbox_list, name_list):
+    img = cv2.imread('/home/tony/ocr/test_data_1/test_data/' + img_name)
+
+    if len(bbox_list) != len(name_list):
+        assert 0, print('bbox_list长度和name_list长度不相等')
+
+    for i in range(len(bbox_list)):
+        # 将切割的图片进行保存并命名为img_name_i.jpg
+        cut_img = img[bbox_list[i][1]:bbox_list[i][3], bbox_list[i][0]:bbox_list[i][2]]
+        save_name = '/home/tony/ocr/test_data/' + name_list[i] + '.jpg'
+        cv2.imwrite(save_name, cut_img)
+
+
 def make_dataset():
     listdir = os.listdir(RAW_DATASET)
     pbar = pb.ProgressBar(maxval=len(listdir), widgets=['处理进度', pb.Bar('=', '[', ']'), '', pb.Percentage()])
@@ -139,41 +175,21 @@ def make_dataset():
             cut_img_and_save_label(file, bbox_list, words_list)
     pbar.finish()
 
-# a = []
-#
-# for i in range(1,10):
-#     z = [1,2,3,4,5,6]
-#     x = 'a'*i
-#     c = [j for j in range(i)]
-#     a.append((z,x,c))
-#
-# z,x,c = zip(*a)
-# batch_y = np.reshape(
-#                 np.array(x),
-#                 (-1)
-#             )
-# # # print(z)
-# # print(x)
-# print(c)
-# # print(batch_y)
-# indices, values, shape = sparse_tuple_from(
-#                 np.reshape(
-#                     np.array(c),
-#                     (-1)
-#                 )
-#             )
-# print(indices.shape)
-# print(values.shape)
-# print(shape)
-# bbox_list, words_list = extract_bbox_words('0.txt')
-# img_name_list, label_list = cut_img_and_save_label('0.jpg', bbox_list, words_list)
-# print(img_name_list)
-# print(label_list)
+def make_test_img():
+    for img_file in os.listdir('/home/tony/ocr/test_data_1/test_data/'):
+        if 'jpg' in img_file:
+            txt_file = img_file.replace('.jpg', '_rect.txt')
+            bbox_list, name_list = test_extract_bbox_name(txt_file)
+            test_cut_img(img_file,bbox_list, name_list)
 
 if __name__ == "__main__":
-    #pass
-    make_dataset()
-    f = open('../data/dataset_label.txt', 'w')
-    f.write(str(dataset_dict))
-    f.close()
+    # 处理train 数据集
+    # make_dataset()
+    # f = open('../data/dataset_label.txt', 'w')
+    # f.write(str(dataset_dict))
+    # f.close()
+
+
+    # 处理test数据集
+    make_test_img()
 
