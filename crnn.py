@@ -25,11 +25,11 @@ class CRNN(object):
         cnn_out = self._cnn(self._inputs)
 
         # 送入rnn前将cnn进行reshape
-        reshaped_cnn_output = tf.reshape(cnn_out, [self._batch_size, -1, 512])
-        max_char_count = reshaped_cnn_output.get_shape().as_list()[1]
+        #reshaped_cnn_output = tf.reshape(cnn_out, [self._batch_size, -1, 512])
+        max_char_count = cnn_out.get_shape().as_list()[1]
         print(max_char_count)
 
-        crnn_model = self._rnn(reshaped_cnn_output, self._seq_len)
+        crnn_model = self._rnn(cnn_out, self._seq_len)
         logits = tf.reshape(crnn_model, [-1, 512])
 
         W = tf.Variable(tf.truncated_normal([512, self._class_num], stddev=0.1), name="W")
@@ -94,9 +94,9 @@ class CRNN(object):
         pool4 = tf.layers.max_pooling2d(inputs=conv8, pool_size=[3,1], strides=[3,1], padding="valid")
 
         features = tf.squeeze(pool4, axis=1, name='features')
-        cnn_output = tf.transpose(features, perm=[1, 0, 2], name='time_major')
+        #cnn_output = tf.transpose(features, perm=[1, 0, 2], name='time_major')
 
-        return cnn_output
+        return features
 
     def _rnn(self, inputs, seq_len):
         """
