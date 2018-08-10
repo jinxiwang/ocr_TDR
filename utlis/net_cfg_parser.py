@@ -11,12 +11,12 @@ def parser_cfg_file(cfg_file):
         # 获取配置文件中的net信息
         if section == 'net':
             for option in config.options(section):
-                net_params[option] = config.get(section,option)
+                net_params[option] = config.get(section, option)
 
         # 获取配置文件中的train信息
         if section == 'train':
             for option in config.options(section):
-                train_params[option] = config.get(section,option)
+                train_params[option] = config.get(section, option)
 
     return net_params,train_params
 
