@@ -43,6 +43,7 @@ class Dataload(object):
             batch_label.append(self.data_dict[self.img_path_list[self.current_index]])
             self.current_index += 1
 
+        #print(batch_label)
         batch_label = self._sparse_tuple_from(batch_label)
 
         if self.current_index + 1 == len(self.img_path_list):
@@ -113,22 +114,49 @@ class Dataload(object):
                 if onehot == -1:
                     continue
                 words += words_list[words_onehot_list.index(onehot)]
-            print(words)
+            #print(words)
             img = np.reshape(img,[32, 1050])
             cv2.imwrite('d.jpg', img)
             cv2.imshow('d',img)
             cv2.waitKey()
 
+    def decode_sparse_tensor(self, sparse_tensor):
+        decoded_indexes = list()
+        current_i = 0
+        current_seq = []
+        for offset, i_and_index in enumerate(sparse_tensor[0]):
+            i = i_and_index[0]
+            if i != current_i:
+                decoded_indexes.append(current_seq)
+                current_i = i
+                current_seq = list()
+            current_seq.append(offset)
+        decoded_indexes.append(current_seq)
+        print(decoded_indexes)
+        # result = []
+        # for index in decoded_indexes:
+        #     result.append(self.decode_a_seq(index, sparse_tensor))
+        # return result
+
+    def decode_a_seq(self, indexes, spars_tensor):
+        decoded = []
+        for m in indexes:
+            str = DIGITS[spars_tensor[1][m]]
+            decoded.append(str)
+        return decoded
 
 
 if __name__ == "__main__":
-    a = Dataload(64, './data/dataset_label.txt')
+    a = Dataload(2, './data/dataset_label.txt')
     for i in range(200):
 
         print('index', a.current_index)
         print('epoch', a.epoch)
         b, c = a.get_train_batch()
+        print(c)
+        a.decode_sparse_tensor(c)
         a.decode_batch(b,c)
+        cv2.waitKey()
         # for i in range(np.shape(b)[0]):
         #     img = b[i]
         #     cv2.imshow('d',img)
