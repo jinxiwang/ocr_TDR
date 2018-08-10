@@ -57,11 +57,33 @@ class Train_CRNN(object):
             loss = tf.reduce_mean(loss)
             tf.summary.scalar("loss", loss)
 
+        # with tf.name_scope("test"):
+        #     predictions, _ = tf.nn.ctc_beam_search_decoder(self._net_output,
+        #                                                    self._seq_len,
+        #                                                    beam_width=128,
+        #                                                    top_paths=1,
+        #                                                    merge_repeated=True)
+        #     hypothesis = tf.cast(predictions[0], tf.int32)
+        #     label_errors = tf.edit_distance(hypothesis, self._label, normalize=False)
+        #     sequence_errors = tf.count_nonzero(label_errors, axis=0)
+        #     total_label_error = tf.reduce_sum(label_errors)
+        #     total_labels = tf.reduce_sum(label_length)
+        #     label_error = tf.truediv(total_label_error,
+        #                              tf.cast(total_labels, tf.float32),
+        #                              name='label_error')
+        #     sequence_error = tf.truediv(tf.cast(sequence_errors, tf.int32),
+        #                                 tf.shape(label_length)[0],
+        #                                 name='sequence_error')
+        #
+        #     tf.summary.scalar('label_error', label_error)
+        #     tf.summary.scalar('sequence_error', sequence_error)
+
         with tf.name_scope('optimizer'):
             train_op = tf.train.AdamOptimizer(self._learning_rate).minimize(loss)
 
         with tf.name_scope('accuracy'):
-            accuracy = tf.reduce_mean(tf.edit_distance(tf.cast(self._decoded[0], tf.int32), self._label))
+            accuracy = 1 - tf.reduce_mean(tf.edit_distance(tf.cast(self._decoded[0], tf.int32), self._label))
+            accuracy_broad = tf.summary.scalar("accuracy", accuracy)
 
         data = Dataload(self.batch_size, './data/dataset_label.txt',
                         img_height=self.input_height, img_width=self.input_width)
@@ -97,6 +119,12 @@ class Train_CRNN(object):
                 if step%20 == 0:
                     train_loss = sess.run(loss, feed_dict=feed_dict)
                     self.train_logger.info('step:%d, total loss: %6f' % (step, train_loss))
+                    self.train_logger.info('compute accuracy...')
+                    train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
+                    self.train_logger.info('epoch:%d, accuracy: %6f' % (epoch, train_accuracy))
+                    if train_accuracy>0.9:
+                        print('label:', batch_label)
+                        print('predict:', sess.run(self.dense_decoded, feed_dict=feed_dict))
 
                 # if step%10 == 0:
                 #     train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
@@ -115,7 +143,10 @@ class Train_CRNN(object):
                     epoch = data.epoch
                     self.train_logger.info('compute accuracy...')
                     train_accuracy = sess.run(accuracy, feed_dict=feed_dict)
-                    self.train_logger.info('epoch:%d, train accuracy: %6f' % (epoch, 1-train_accuracy))
+                    self.train_logger.info('epoch:%d, accuracy: %6f' % (epoch, train_accuracy))
+                    summ = sess.run(accuracy_broad, feed_dict=feed_dict)
+                    train_writer.add_summary(summ, global_step=step)
+
             train_writer.close()
 
     def _train_logger_init(self):
@@ -143,5 +174,5 @@ class Train_CRNN(object):
 
 
 if __name__ == "__main__":
-    train = Train_CRNN(pre_train=False)
+    train = Train_CRNN(pre_train=True)
     train.train()
