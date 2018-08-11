@@ -93,8 +93,8 @@ class CRNN(object):
         conv8 = self._conv2d(inputs=conv7, filters=512, padding="same", batch_norm=True, name='conv8')
         pool4 = tf.layers.max_pooling2d(inputs=conv8, pool_size=[3,1], strides=[3,1], padding="valid")
 
+        # 去掉维度为1的维度
         features = tf.squeeze(pool4, axis=1, name='features')
-        #cnn_output = tf.transpose(features, perm=[1, 0, 2], name='time_major')
 
         return features
 

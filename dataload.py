@@ -1,5 +1,5 @@
 import numpy as np
-import scipy.misc as sm
+import random
 import cv2
 
 
@@ -19,6 +19,49 @@ class Dataload(object):
         self.current_index = 0
         self.epoch = 0
 
+
+    def get_val_batch(self, batch_size):
+        """
+        获取验证集数据
+        :param batch_size:
+        :return:
+        """
+
+        f = open('./data/val_data.txt', 'r')
+        data = f.read()
+        val_data_dict = eval(data)
+        val_img_path_list = list(self.data_dict.keys())
+
+        val_data_num = len(val_img_path_list)
+
+
+        batch_data = np.zeros([batch_size,
+                               self.input_img_height,
+                               self.input_img_width])
+        batch_label = []
+
+        for i in range(batch_size):
+            random_index = random.randint(0, val_data_num)
+            img = cv2.imread(val_img_path_list[random_index])
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+            img_resized = self._resize_img(img)
+            batch_data[i] = img_resized
+            batch_label.append(val_data_dict[val_img_path_list[random_index]])
+
+        # print(batch_label)
+        batch_label = self._sparse_tuple_from(batch_label)
+
+        batch_data = batch_data.reshape([batch_size,
+                                         self.input_img_height,
+                                         self.input_img_width,
+                                         1])
+
+        batch_data = batch_data / 255 * 2 - 1
+
+        return batch_data, batch_label
+
+
     def get_train_batch(self):
         """
         获取训练batch
@@ -36,7 +79,7 @@ class Dataload(object):
         for i in range(self.batch_size):
             img = cv2.imread(self.img_path_list[self.current_index])
             img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            #print(np.shape(img))
+
 
             img_resized = self._resize_img(img)
             batch_data[i] = img_resized
@@ -132,7 +175,6 @@ class Dataload(object):
                 current_seq = list()
             current_seq.append(offset)
         decoded_indexes.append(current_seq)
-        print(decoded_indexes)
         # result = []
         # for index in decoded_indexes:
         #     result.append(self.decode_a_seq(index, sparse_tensor))
