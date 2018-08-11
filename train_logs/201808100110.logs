@@ -1,0 +1,594 @@
+2018-08-10 01:12:19,714 - train_crnn.py[line:99] - INFO: step:20, total loss: 154.753265
+2018-08-10 01:13:40,283 - train_crnn.py[line:99] - INFO: step:40, total loss: 143.993607
+2018-08-10 01:15:02,278 - train_crnn.py[line:99] - INFO: step:60, total loss: 108.713142
+2018-08-10 01:16:24,226 - train_crnn.py[line:99] - INFO: step:80, total loss: 116.562462
+2018-08-10 01:17:46,138 - train_crnn.py[line:99] - INFO: step:100, total loss: 120.198425
+2018-08-10 01:17:46,138 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:17:48,566 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:19:10,592 - train_crnn.py[line:99] - INFO: step:120, total loss: 109.185143
+2018-08-10 01:20:32,400 - train_crnn.py[line:99] - INFO: step:140, total loss: 138.157150
+2018-08-10 01:21:54,639 - train_crnn.py[line:99] - INFO: step:160, total loss: 105.891487
+2018-08-10 01:23:16,182 - train_crnn.py[line:99] - INFO: step:180, total loss: 113.987076
+2018-08-10 01:24:38,173 - train_crnn.py[line:99] - INFO: step:200, total loss: 120.163879
+2018-08-10 01:24:38,173 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:24:40,729 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:26:02,943 - train_crnn.py[line:99] - INFO: step:220, total loss: 104.331703
+2018-08-10 01:27:25,249 - train_crnn.py[line:99] - INFO: step:240, total loss: 119.372803
+2018-08-10 01:28:49,548 - train_crnn.py[line:99] - INFO: step:260, total loss: 128.191833
+2018-08-10 01:30:15,319 - train_crnn.py[line:99] - INFO: step:280, total loss: 99.234344
+2018-08-10 01:31:37,854 - train_crnn.py[line:99] - INFO: step:300, total loss: 109.580795
+2018-08-10 01:31:37,855 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:31:39,593 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:33:03,283 - train_crnn.py[line:99] - INFO: step:320, total loss: 101.137253
+2018-08-10 01:33:24,077 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 01:33:24,996 - train_crnn.py[line:118] - INFO: epoch:1, train accuracy: 0.000000
+2018-08-10 01:33:25,324 - train_crnn.py[line:119] - INFO: epoch:1, val accuracy: 0.000000
+2018-08-10 01:34:26,625 - train_crnn.py[line:99] - INFO: step:340, total loss: 95.001373
+2018-08-10 01:35:49,607 - train_crnn.py[line:99] - INFO: step:360, total loss: 109.952003
+2018-08-10 01:37:13,681 - train_crnn.py[line:99] - INFO: step:380, total loss: 102.453964
+2018-08-10 01:38:34,552 - train_crnn.py[line:99] - INFO: step:400, total loss: 107.592422
+2018-08-10 01:38:34,552 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:38:35,085 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:40:00,606 - train_crnn.py[line:99] - INFO: step:420, total loss: 123.696533
+2018-08-10 01:41:24,796 - train_crnn.py[line:99] - INFO: step:440, total loss: 99.775955
+2018-08-10 01:42:47,142 - train_crnn.py[line:99] - INFO: step:460, total loss: 117.234024
+2018-08-10 01:44:11,698 - train_crnn.py[line:99] - INFO: step:480, total loss: 113.508667
+2018-08-10 01:45:33,660 - train_crnn.py[line:99] - INFO: step:500, total loss: 124.147987
+2018-08-10 01:45:33,660 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:45:34,807 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:46:58,059 - train_crnn.py[line:99] - INFO: step:520, total loss: 110.370956
+2018-08-10 01:48:20,224 - train_crnn.py[line:99] - INFO: step:540, total loss: 102.409309
+2018-08-10 01:49:43,525 - train_crnn.py[line:99] - INFO: step:560, total loss: 123.200264
+2018-08-10 01:51:05,214 - train_crnn.py[line:99] - INFO: step:580, total loss: 107.544998
+2018-08-10 01:52:26,731 - train_crnn.py[line:99] - INFO: step:600, total loss: 119.310738
+2018-08-10 01:52:26,731 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:52:27,529 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 01:53:51,366 - train_crnn.py[line:99] - INFO: step:620, total loss: 111.179543
+2018-08-10 01:55:12,915 - train_crnn.py[line:99] - INFO: step:640, total loss: 97.637650
+2018-08-10 01:55:52,884 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 01:55:53,695 - train_crnn.py[line:118] - INFO: epoch:2, train accuracy: 0.014054
+2018-08-10 01:55:53,956 - train_crnn.py[line:119] - INFO: epoch:2, val accuracy: 0.000000
+2018-08-10 01:56:34,846 - train_crnn.py[line:99] - INFO: step:660, total loss: 108.952393
+2018-08-10 01:57:56,211 - train_crnn.py[line:99] - INFO: step:680, total loss: 90.558044
+2018-08-10 01:59:16,431 - train_crnn.py[line:99] - INFO: step:700, total loss: 107.177612
+2018-08-10 01:59:16,432 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 01:59:18,976 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:00:40,739 - train_crnn.py[line:99] - INFO: step:720, total loss: 107.805115
+2018-08-10 02:02:01,127 - train_crnn.py[line:99] - INFO: step:740, total loss: 95.202873
+2018-08-10 02:03:22,096 - train_crnn.py[line:99] - INFO: step:760, total loss: 101.837479
+2018-08-10 02:04:42,562 - train_crnn.py[line:99] - INFO: step:780, total loss: 96.797539
+2018-08-10 02:06:03,169 - train_crnn.py[line:99] - INFO: step:800, total loss: 119.826828
+2018-08-10 02:06:03,169 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:06:04,869 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:07:26,254 - train_crnn.py[line:99] - INFO: step:820, total loss: 86.576828
+2018-08-10 02:08:46,141 - train_crnn.py[line:99] - INFO: step:840, total loss: 101.450211
+2018-08-10 02:10:05,546 - train_crnn.py[line:99] - INFO: step:860, total loss: 101.550888
+2018-08-10 02:11:25,602 - train_crnn.py[line:99] - INFO: step:880, total loss: 118.313263
+2018-08-10 02:12:46,760 - train_crnn.py[line:99] - INFO: step:900, total loss: 103.180450
+2018-08-10 02:12:46,760 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:12:48,217 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:14:09,202 - train_crnn.py[line:99] - INFO: step:920, total loss: 96.559586
+2018-08-10 02:15:29,667 - train_crnn.py[line:99] - INFO: step:940, total loss: 134.196716
+2018-08-10 02:16:50,673 - train_crnn.py[line:99] - INFO: step:960, total loss: 124.444336
+2018-08-10 02:17:49,687 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 02:17:50,494 - train_crnn.py[line:118] - INFO: epoch:3, train accuracy: 0.015001
+2018-08-10 02:17:51,054 - train_crnn.py[line:119] - INFO: epoch:3, val accuracy: 0.000000
+2018-08-10 02:18:11,143 - train_crnn.py[line:99] - INFO: step:980, total loss: 136.026520
+2018-08-10 02:19:30,825 - train_crnn.py[line:99] - INFO: step:1000, total loss: 109.625916
+2018-08-10 02:19:30,826 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:19:31,585 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:20:53,185 - train_crnn.py[line:99] - INFO: step:1020, total loss: 92.496323
+2018-08-10 02:22:13,114 - train_crnn.py[line:99] - INFO: step:1040, total loss: 116.147888
+2018-08-10 02:23:32,843 - train_crnn.py[line:99] - INFO: step:1060, total loss: 95.831329
+2018-08-10 02:24:53,055 - train_crnn.py[line:99] - INFO: step:1080, total loss: 93.260559
+2018-08-10 02:26:14,811 - train_crnn.py[line:99] - INFO: step:1100, total loss: 95.348381
+2018-08-10 02:26:14,811 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:26:16,200 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:27:37,217 - train_crnn.py[line:99] - INFO: step:1120, total loss: 84.700470
+2018-08-10 02:28:56,862 - train_crnn.py[line:99] - INFO: step:1140, total loss: 113.768700
+2018-08-10 02:30:16,791 - train_crnn.py[line:99] - INFO: step:1160, total loss: 115.723022
+2018-08-10 02:31:36,604 - train_crnn.py[line:99] - INFO: step:1180, total loss: 99.798965
+2018-08-10 02:32:56,775 - train_crnn.py[line:99] - INFO: step:1200, total loss: 99.383072
+2018-08-10 02:32:56,775 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:32:57,014 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:34:19,240 - train_crnn.py[line:99] - INFO: step:1220, total loss: 101.450310
+2018-08-10 02:35:38,872 - train_crnn.py[line:99] - INFO: step:1240, total loss: 129.889526
+2018-08-10 02:36:58,846 - train_crnn.py[line:99] - INFO: step:1260, total loss: 112.967209
+2018-08-10 02:38:19,794 - train_crnn.py[line:99] - INFO: step:1280, total loss: 127.327202
+2018-08-10 02:39:39,687 - train_crnn.py[line:99] - INFO: step:1300, total loss: 85.893875
+2018-08-10 02:39:39,688 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:39:42,740 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:39:42,755 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 02:39:43,569 - train_crnn.py[line:118] - INFO: epoch:4, train accuracy: 0.014054
+2018-08-10 02:39:43,939 - train_crnn.py[line:119] - INFO: epoch:4, val accuracy: 0.000000
+2018-08-10 02:41:03,360 - train_crnn.py[line:99] - INFO: step:1320, total loss: 97.579247
+2018-08-10 02:42:23,335 - train_crnn.py[line:99] - INFO: step:1340, total loss: 106.815018
+2018-08-10 02:43:43,236 - train_crnn.py[line:99] - INFO: step:1360, total loss: 86.423157
+2018-08-10 02:45:02,858 - train_crnn.py[line:99] - INFO: step:1380, total loss: 97.097717
+2018-08-10 02:46:23,218 - train_crnn.py[line:99] - INFO: step:1400, total loss: 104.317665
+2018-08-10 02:46:23,226 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:46:24,868 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:47:46,170 - train_crnn.py[line:99] - INFO: step:1420, total loss: 96.275230
+2018-08-10 02:49:06,715 - train_crnn.py[line:99] - INFO: step:1440, total loss: 123.481865
+2018-08-10 02:50:26,857 - train_crnn.py[line:99] - INFO: step:1460, total loss: 97.064606
+2018-08-10 02:51:46,997 - train_crnn.py[line:99] - INFO: step:1480, total loss: 105.366577
+2018-08-10 02:53:07,224 - train_crnn.py[line:99] - INFO: step:1500, total loss: 112.105560
+2018-08-10 02:53:07,224 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:53:08,840 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 02:54:30,144 - train_crnn.py[line:99] - INFO: step:1520, total loss: 98.733368
+2018-08-10 02:55:50,361 - train_crnn.py[line:99] - INFO: step:1540, total loss: 113.081848
+2018-08-10 02:57:09,759 - train_crnn.py[line:99] - INFO: step:1560, total loss: 124.029037
+2018-08-10 02:58:29,898 - train_crnn.py[line:99] - INFO: step:1580, total loss: 94.693901
+2018-08-10 02:59:50,058 - train_crnn.py[line:99] - INFO: step:1600, total loss: 105.854111
+2018-08-10 02:59:50,058 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 02:59:52,003 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:01:12,791 - train_crnn.py[line:99] - INFO: step:1620, total loss: 96.915924
+2018-08-10 03:01:32,244 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 03:01:33,025 - train_crnn.py[line:118] - INFO: epoch:5, train accuracy: 0.014054
+2018-08-10 03:01:33,684 - train_crnn.py[line:119] - INFO: epoch:5, val accuracy: 0.000000
+2018-08-10 03:02:32,941 - train_crnn.py[line:99] - INFO: step:1640, total loss: 91.191116
+2018-08-10 03:03:52,762 - train_crnn.py[line:99] - INFO: step:1660, total loss: 105.826004
+2018-08-10 03:05:13,921 - train_crnn.py[line:99] - INFO: step:1680, total loss: 98.707649
+2018-08-10 03:06:33,332 - train_crnn.py[line:99] - INFO: step:1700, total loss: 104.134956
+2018-08-10 03:06:33,332 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:06:34,039 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:07:55,688 - train_crnn.py[line:99] - INFO: step:1720, total loss: 120.265747
+2018-08-10 03:09:15,572 - train_crnn.py[line:99] - INFO: step:1740, total loss: 96.146118
+2018-08-10 03:10:36,244 - train_crnn.py[line:99] - INFO: step:1760, total loss: 113.493927
+2018-08-10 03:11:56,577 - train_crnn.py[line:99] - INFO: step:1780, total loss: 109.593315
+2018-08-10 03:13:16,233 - train_crnn.py[line:99] - INFO: step:1800, total loss: 120.449371
+2018-08-10 03:13:16,233 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:13:16,485 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:14:38,674 - train_crnn.py[line:99] - INFO: step:1820, total loss: 106.214935
+2018-08-10 03:15:58,990 - train_crnn.py[line:99] - INFO: step:1840, total loss: 99.132210
+2018-08-10 03:17:18,679 - train_crnn.py[line:99] - INFO: step:1860, total loss: 119.672302
+2018-08-10 03:18:38,830 - train_crnn.py[line:99] - INFO: step:1880, total loss: 104.293549
+2018-08-10 03:19:58,992 - train_crnn.py[line:99] - INFO: step:1900, total loss: 116.983627
+2018-08-10 03:19:58,993 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:19:59,729 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:21:22,493 - train_crnn.py[line:99] - INFO: step:1920, total loss: 108.383392
+2018-08-10 03:22:42,523 - train_crnn.py[line:99] - INFO: step:1940, total loss: 93.838989
+2018-08-10 03:23:21,779 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 03:23:22,563 - train_crnn.py[line:118] - INFO: epoch:6, train accuracy: 0.012804
+2018-08-10 03:23:25,323 - train_crnn.py[line:119] - INFO: epoch:6, val accuracy: 0.000000
+2018-08-10 03:24:02,930 - train_crnn.py[line:99] - INFO: step:1960, total loss: 104.911583
+2018-08-10 03:25:23,276 - train_crnn.py[line:99] - INFO: step:1980, total loss: 86.258827
+2018-08-10 03:26:42,511 - train_crnn.py[line:99] - INFO: step:2000, total loss: 103.331619
+2018-08-10 03:26:42,511 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:26:42,761 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:28:04,636 - train_crnn.py[line:99] - INFO: step:2020, total loss: 103.453964
+2018-08-10 03:29:24,572 - train_crnn.py[line:99] - INFO: step:2040, total loss: 90.852295
+2018-08-10 03:30:45,433 - train_crnn.py[line:99] - INFO: step:2060, total loss: 97.680252
+2018-08-10 03:32:05,375 - train_crnn.py[line:99] - INFO: step:2080, total loss: 93.050232
+2018-08-10 03:33:25,249 - train_crnn.py[line:99] - INFO: step:2100, total loss: 115.000626
+2018-08-10 03:33:25,249 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:33:25,583 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:34:47,888 - train_crnn.py[line:99] - INFO: step:2120, total loss: 82.268860
+2018-08-10 03:36:08,396 - train_crnn.py[line:99] - INFO: step:2140, total loss: 97.434738
+2018-08-10 03:37:28,445 - train_crnn.py[line:99] - INFO: step:2160, total loss: 97.673424
+2018-08-10 03:38:48,438 - train_crnn.py[line:99] - INFO: step:2180, total loss: 113.377945
+2018-08-10 03:40:08,491 - train_crnn.py[line:99] - INFO: step:2200, total loss: 98.460159
+2018-08-10 03:40:08,491 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:40:09,061 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:41:30,365 - train_crnn.py[line:99] - INFO: step:2220, total loss: 90.913857
+2018-08-10 03:42:51,161 - train_crnn.py[line:99] - INFO: step:2240, total loss: 126.563034
+2018-08-10 03:44:11,322 - train_crnn.py[line:99] - INFO: step:2260, total loss: 117.177650
+2018-08-10 03:45:10,419 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 03:45:11,201 - train_crnn.py[line:118] - INFO: epoch:7, train accuracy: 0.035294
+2018-08-10 03:45:12,511 - train_crnn.py[line:119] - INFO: epoch:7, val accuracy: 0.000000
+2018-08-10 03:45:32,226 - train_crnn.py[line:99] - INFO: step:2280, total loss: 128.068176
+2018-08-10 03:46:52,320 - train_crnn.py[line:99] - INFO: step:2300, total loss: 103.089478
+2018-08-10 03:46:52,320 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:46:53,399 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:48:15,197 - train_crnn.py[line:99] - INFO: step:2320, total loss: 84.906158
+2018-08-10 03:49:35,037 - train_crnn.py[line:99] - INFO: step:2340, total loss: 107.461014
+2018-08-10 03:50:54,214 - train_crnn.py[line:99] - INFO: step:2360, total loss: 88.039490
+2018-08-10 03:52:14,865 - train_crnn.py[line:99] - INFO: step:2380, total loss: 85.867371
+2018-08-10 03:53:35,175 - train_crnn.py[line:99] - INFO: step:2400, total loss: 88.004150
+2018-08-10 03:53:35,175 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 03:53:36,234 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 03:54:57,560 - train_crnn.py[line:99] - INFO: step:2420, total loss: 77.844643
+2018-08-10 03:56:17,422 - train_crnn.py[line:99] - INFO: step:2440, total loss: 103.365349
+2018-08-10 03:57:37,576 - train_crnn.py[line:99] - INFO: step:2460, total loss: 106.868950
+2018-08-10 03:58:57,735 - train_crnn.py[line:99] - INFO: step:2480, total loss: 89.803513
+2018-08-10 04:00:17,721 - train_crnn.py[line:99] - INFO: step:2500, total loss: 89.368416
+2018-08-10 04:00:17,721 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:00:18,421 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:01:40,497 - train_crnn.py[line:99] - INFO: step:2520, total loss: 91.816139
+2018-08-10 04:03:00,270 - train_crnn.py[line:99] - INFO: step:2540, total loss: 116.564575
+2018-08-10 04:04:20,216 - train_crnn.py[line:99] - INFO: step:2560, total loss: 101.393478
+2018-08-10 04:05:40,666 - train_crnn.py[line:99] - INFO: step:2580, total loss: 113.749405
+2018-08-10 04:07:00,796 - train_crnn.py[line:99] - INFO: step:2600, total loss: 75.187782
+2018-08-10 04:07:00,796 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:07:02,547 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:07:02,572 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 04:07:03,364 - train_crnn.py[line:118] - INFO: epoch:8, train accuracy: 0.050983
+2018-08-10 04:07:09,351 - train_crnn.py[line:119] - INFO: epoch:8, val accuracy: 0.000000
+2018-08-10 04:08:22,478 - train_crnn.py[line:99] - INFO: step:2620, total loss: 85.843887
+2018-08-10 04:09:42,544 - train_crnn.py[line:99] - INFO: step:2640, total loss: 94.218437
+2018-08-10 04:11:01,775 - train_crnn.py[line:99] - INFO: step:2660, total loss: 75.853256
+2018-08-10 04:12:21,629 - train_crnn.py[line:99] - INFO: step:2680, total loss: 84.404770
+2018-08-10 04:13:42,553 - train_crnn.py[line:99] - INFO: step:2700, total loss: 89.657303
+2018-08-10 04:13:42,553 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:13:43,819 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:15:05,615 - train_crnn.py[line:99] - INFO: step:2720, total loss: 82.595299
+2018-08-10 04:16:25,585 - train_crnn.py[line:99] - INFO: step:2740, total loss: 109.402878
+2018-08-10 04:17:46,179 - train_crnn.py[line:99] - INFO: step:2760, total loss: 84.246613
+2018-08-10 04:19:06,746 - train_crnn.py[line:99] - INFO: step:2780, total loss: 88.106445
+2018-08-10 04:20:26,865 - train_crnn.py[line:99] - INFO: step:2800, total loss: 93.824608
+2018-08-10 04:20:26,866 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:20:28,478 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:21:49,306 - train_crnn.py[line:99] - INFO: step:2820, total loss: 82.404449
+2018-08-10 04:23:09,119 - train_crnn.py[line:99] - INFO: step:2840, total loss: 91.523788
+2018-08-10 04:24:29,196 - train_crnn.py[line:99] - INFO: step:2860, total loss: 102.642509
+2018-08-10 04:25:49,786 - train_crnn.py[line:99] - INFO: step:2880, total loss: 76.966568
+2018-08-10 04:27:10,462 - train_crnn.py[line:99] - INFO: step:2900, total loss: 85.756943
+2018-08-10 04:27:10,462 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:27:10,710 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:28:33,449 - train_crnn.py[line:99] - INFO: step:2920, total loss: 77.205521
+2018-08-10 04:28:52,881 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 04:28:53,684 - train_crnn.py[line:118] - INFO: epoch:9, train accuracy: 0.081854
+2018-08-10 04:28:95,120 - train_crnn.py[line:119] - INFO: epoch:9, val accuracy: 0.031324
+2018-08-10 04:29:53,590 - train_crnn.py[line:99] - INFO: step:2940, total loss: 73.757309
+2018-08-10 04:31:13,924 - train_crnn.py[line:99] - INFO: step:2960, total loss: 87.194534
+2018-08-10 04:32:34,091 - train_crnn.py[line:99] - INFO: step:2980, total loss: 75.511719
+2018-08-10 04:33:53,933 - train_crnn.py[line:99] - INFO: step:3000, total loss: 82.118927
+2018-08-10 04:33:53,933 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:33:55,183 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:35:16,046 - train_crnn.py[line:99] - INFO: step:3020, total loss: 94.518784
+2018-08-10 04:36:35,931 - train_crnn.py[line:99] - INFO: step:3040, total loss: 74.452271
+2018-08-10 04:37:56,026 - train_crnn.py[line:99] - INFO: step:3060, total loss: 87.320404
+2018-08-10 04:39:16,661 - train_crnn.py[line:99] - INFO: step:3080, total loss: 84.993355
+2018-08-10 04:40:36,683 - train_crnn.py[line:99] - INFO: step:3100, total loss: 84.757645
+2018-08-10 04:40:36,683 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:40:38,689 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:41:59,532 - train_crnn.py[line:99] - INFO: step:3120, total loss: 79.942764
+2018-08-10 04:43:19,798 - train_crnn.py[line:99] - INFO: step:3140, total loss: 73.818024
+2018-08-10 04:44:40,006 - train_crnn.py[line:99] - INFO: step:3160, total loss: 82.220428
+2018-08-10 04:46:00,153 - train_crnn.py[line:99] - INFO: step:3180, total loss: 75.085678
+2018-08-10 04:47:20,100 - train_crnn.py[line:99] - INFO: step:3200, total loss: 82.289230
+2018-08-10 04:47:20,100 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:47:22,544 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:48:43,546 - train_crnn.py[line:99] - INFO: step:3220, total loss: 72.401253
+2018-08-10 04:50:03,299 - train_crnn.py[line:99] - INFO: step:3240, total loss: 62.850594
+2018-08-10 04:50:42,308 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 04:50:43,092 - train_crnn.py[line:118] - INFO: epoch:10, train accuracy: 0.127619
+2018-08-10 04:50:44,402 - train_crnn.py[line:119] - INFO: epoch:10, val accuracy: 0.024317
+2018-08-10 04:51:23,390 - train_crnn.py[line:99] - INFO: step:3260, total loss: 65.126747
+2018-08-10 04:52:42,978 - train_crnn.py[line:99] - INFO: step:3280, total loss: 57.975861
+2018-08-10 04:54:03,054 - train_crnn.py[line:99] - INFO: step:3300, total loss: 67.386024
+2018-08-10 04:54:03,054 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 04:54:03,961 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 04:55:25,547 - train_crnn.py[line:99] - INFO: step:3320, total loss: 68.106384
+2018-08-10 04:56:45,281 - train_crnn.py[line:99] - INFO: step:3340, total loss: 57.318054
+2018-08-10 04:58:05,754 - train_crnn.py[line:99] - INFO: step:3360, total loss: 59.911415
+2018-08-10 04:59:26,491 - train_crnn.py[line:99] - INFO: step:3380, total loss: 58.428158
+2018-08-10 05:00:48,014 - train_crnn.py[line:99] - INFO: step:3400, total loss: 71.963226
+2018-08-10 05:00:48,014 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:00:48,674 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:02:10,687 - train_crnn.py[line:99] - INFO: step:3420, total loss: 51.271252
+2018-08-10 05:03:31,765 - train_crnn.py[line:99] - INFO: step:3440, total loss: 57.481575
+2018-08-10 05:04:52,018 - train_crnn.py[line:99] - INFO: step:3460, total loss: 60.566742
+2018-08-10 05:06:12,827 - train_crnn.py[line:99] - INFO: step:3480, total loss: 61.407925
+2018-08-10 05:07:33,341 - train_crnn.py[line:99] - INFO: step:3500, total loss: 56.140312
+2018-08-10 05:07:33,342 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:07:34,012 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:08:55,588 - train_crnn.py[line:99] - INFO: step:3520, total loss: 52.044418
+2018-08-10 05:10:16,529 - train_crnn.py[line:99] - INFO: step:3540, total loss: 66.051636
+2018-08-10 05:11:36,469 - train_crnn.py[line:99] - INFO: step:3560, total loss: 66.957886
+2018-08-10 05:12:35,490 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 05:12:36,279 - train_crnn.py[line:118] - INFO: epoch:11, train accuracy: 0.384146
+2018-08-10 05:12:63,652 - train_crnn.py[line:119] - INFO: epoch:11, val accuracy: 0.124781
+2018-08-10 05:12:57,025 - train_crnn.py[line:99] - INFO: step:3580, total loss: 70.914932
+2018-08-10 05:14:16,987 - train_crnn.py[line:99] - INFO: step:3600, total loss: 54.906433
+2018-08-10 05:14:16,987 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:14:17,803 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:15:39,485 - train_crnn.py[line:99] - INFO: step:3620, total loss: 45.525810
+2018-08-10 05:16:59,448 - train_crnn.py[line:99] - INFO: step:3640, total loss: 51.803173
+2018-08-10 05:18:19,562 - train_crnn.py[line:99] - INFO: step:3660, total loss: 47.178986
+2018-08-10 05:19:39,679 - train_crnn.py[line:99] - INFO: step:3680, total loss: 43.312935
+2018-08-10 05:20:59,900 - train_crnn.py[line:99] - INFO: step:3700, total loss: 43.871086
+2018-08-10 05:20:59,900 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:21:00,861 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:22:22,666 - train_crnn.py[line:99] - INFO: step:3720, total loss: 38.889992
+2018-08-10 05:23:42,646 - train_crnn.py[line:99] - INFO: step:3740, total loss: 47.112453
+2018-08-10 05:25:02,818 - train_crnn.py[line:99] - INFO: step:3760, total loss: 53.681736
+2018-08-10 05:26:23,077 - train_crnn.py[line:99] - INFO: step:3780, total loss: 42.247231
+2018-08-10 05:27:43,005 - train_crnn.py[line:99] - INFO: step:3800, total loss: 36.710991
+2018-08-10 05:27:43,005 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:27:44,395 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:29:05,515 - train_crnn.py[line:99] - INFO: step:3820, total loss: 43.642471
+2018-08-10 05:30:25,151 - train_crnn.py[line:99] - INFO: step:3840, total loss: 52.105873
+2018-08-10 05:31:45,078 - train_crnn.py[line:99] - INFO: step:3860, total loss: 48.169800
+2018-08-10 05:33:05,487 - train_crnn.py[line:99] - INFO: step:3880, total loss: 50.566975
+2018-08-10 05:34:25,583 - train_crnn.py[line:99] - INFO: step:3900, total loss: 29.552225
+2018-08-10 05:34:25,583 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:34:25,824 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:34:25,840 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 05:34:26,638 - train_crnn.py[line:118] - INFO: epoch:12, train accuracy: 0.548688
+2018-08-10 05:34:34,515 - train_crnn.py[line:119] - INFO: epoch:12, val accuracy: 0.356418
+2018-08-10 05:35:48,559 - train_crnn.py[line:99] - INFO: step:3920, total loss: 37.742371
+2018-08-10 05:37:08,649 - train_crnn.py[line:99] - INFO: step:3940, total loss: 38.141491
+2018-08-10 05:38:28,728 - train_crnn.py[line:99] - INFO: step:3960, total loss: 33.373951
+2018-08-10 05:39:48,418 - train_crnn.py[line:99] - INFO: step:3980, total loss: 36.962524
+2018-08-10 05:41:08,470 - train_crnn.py[line:99] - INFO: step:4000, total loss: 38.431210
+2018-08-10 05:41:08,470 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:41:10,570 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:42:31,514 - train_crnn.py[line:99] - INFO: step:4020, total loss: 34.431248
+2018-08-10 05:43:50,767 - train_crnn.py[line:99] - INFO: step:4040, total loss: 52.770939
+2018-08-10 05:45:11,897 - train_crnn.py[line:99] - INFO: step:4060, total loss: 38.129246
+2018-08-10 05:46:32,569 - train_crnn.py[line:99] - INFO: step:4080, total loss: 35.321163
+2018-08-10 05:47:53,433 - train_crnn.py[line:99] - INFO: step:4100, total loss: 36.278145
+2018-08-10 05:47:53,433 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:47:54,396 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:49:15,740 - train_crnn.py[line:99] - INFO: step:4120, total loss: 33.076645
+2018-08-10 05:50:36,038 - train_crnn.py[line:99] - INFO: step:4140, total loss: 34.553791
+2018-08-10 05:51:55,755 - train_crnn.py[line:99] - INFO: step:4160, total loss: 43.268425
+2018-08-10 05:53:16,244 - train_crnn.py[line:99] - INFO: step:4180, total loss: 29.490669
+2018-08-10 05:54:36,737 - train_crnn.py[line:99] - INFO: step:4200, total loss: 37.067909
+2018-08-10 05:54:36,737 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 05:54:36,991 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 05:55:59,175 - train_crnn.py[line:99] - INFO: step:4220, total loss: 27.270885
+2018-08-10 05:56:18,547 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 05:56:19,324 - train_crnn.py[line:118] - INFO: epoch:13, train accuracy: 0.658413
+2018-08-10 05:56:24,451 - train_crnn.py[line:119] - INFO: epoch:13, val accuracy: 0.451854
+2018-08-10 05:57:19,456 - train_crnn.py[line:99] - INFO: step:4240, total loss: 29.026516
+2018-08-10 05:58:39,225 - train_crnn.py[line:99] - INFO: step:4260, total loss: 40.361561
+2018-08-10 05:59:59,604 - train_crnn.py[line:99] - INFO: step:4280, total loss: 28.010582
+2018-08-10 06:01:22,307 - train_crnn.py[line:99] - INFO: step:4300, total loss: 34.191208
+2018-08-10 06:01:22,307 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:01:23,047 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:02:46,186 - train_crnn.py[line:99] - INFO: step:4320, total loss: 44.904591
+2018-08-10 06:04:08,414 - train_crnn.py[line:99] - INFO: step:4340, total loss: 27.425415
+2018-08-10 06:05:34,322 - train_crnn.py[line:99] - INFO: step:4360, total loss: 38.259506
+2018-08-10 06:06:55,869 - train_crnn.py[line:99] - INFO: step:4380, total loss: 36.672897
+2018-08-10 06:08:17,342 - train_crnn.py[line:99] - INFO: step:4400, total loss: 30.775040
+2018-08-10 06:08:17,342 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:08:19,755 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:09:41,881 - train_crnn.py[line:99] - INFO: step:4420, total loss: 34.934723
+2018-08-10 06:11:03,561 - train_crnn.py[line:99] - INFO: step:4440, total loss: 29.481007
+2018-08-10 06:12:25,241 - train_crnn.py[line:99] - INFO: step:4460, total loss: 32.822899
+2018-08-10 06:13:46,726 - train_crnn.py[line:99] - INFO: step:4480, total loss: 30.075653
+2018-08-10 06:15:08,377 - train_crnn.py[line:99] - INFO: step:4500, total loss: 30.394945
+2018-08-10 06:15:08,377 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:15:09,849 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:16:33,482 - train_crnn.py[line:99] - INFO: step:4520, total loss: 29.120047
+2018-08-10 06:17:54,923 - train_crnn.py[line:99] - INFO: step:4540, total loss: 24.200462
+2018-08-10 06:18:34,889 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 06:18:35,669 - train_crnn.py[line:118] - INFO: epoch:14, train accuracy: 0.690967
+2018-08-10 06:18:39,325 - train_crnn.py[line:119] - INFO: epoch:14, val accuracy: 0.501117
+2018-08-10 06:19:16,769 - train_crnn.py[line:99] - INFO: step:4560, total loss: 23.799229
+2018-08-10 06:20:38,461 - train_crnn.py[line:99] - INFO: step:4580, total loss: 29.483887
+2018-08-10 06:21:59,749 - train_crnn.py[line:99] - INFO: step:4600, total loss: 27.400238
+2018-08-10 06:21:59,749 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:22:01,131 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:23:23,385 - train_crnn.py[line:99] - INFO: step:4620, total loss: 27.966995
+2018-08-10 06:24:45,501 - train_crnn.py[line:99] - INFO: step:4640, total loss: 24.997158
+2018-08-10 06:26:07,444 - train_crnn.py[line:99] - INFO: step:4660, total loss: 26.812965
+2018-08-10 06:27:28,689 - train_crnn.py[line:99] - INFO: step:4680, total loss: 23.937727
+2018-08-10 06:28:49,440 - train_crnn.py[line:99] - INFO: step:4700, total loss: 31.023426
+2018-08-10 06:28:49,440 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:28:51,985 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:30:12,005 - train_crnn.py[line:99] - INFO: step:4720, total loss: 21.627054
+2018-08-10 06:31:33,127 - train_crnn.py[line:99] - INFO: step:4740, total loss: 23.675684
+2018-08-10 06:32:53,764 - train_crnn.py[line:99] - INFO: step:4760, total loss: 27.859083
+2018-08-10 06:34:13,924 - train_crnn.py[line:99] - INFO: step:4780, total loss: 26.046368
+2018-08-10 06:35:34,563 - train_crnn.py[line:99] - INFO: step:4800, total loss: 24.871593
+2018-08-10 06:35:34,564 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:35:36,550 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:36:57,234 - train_crnn.py[line:99] - INFO: step:4820, total loss: 23.942242
+2018-08-10 06:38:17,875 - train_crnn.py[line:99] - INFO: step:4840, total loss: 26.140158
+2018-08-10 06:39:38,095 - train_crnn.py[line:99] - INFO: step:4860, total loss: 32.098244
+2018-08-10 06:40:37,819 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 06:40:38,600 - train_crnn.py[line:118] - INFO: epoch:15, train accuracy: 0.784185
+2018-08-10 06:40:56,612 - train_crnn.py[line:119] - INFO: epoch:15, val accuracy: 0.631710
+2018-08-10 06:40:59,387 - train_crnn.py[line:99] - INFO: step:4880, total loss: 31.152264
+2018-08-10 06:42:19,521 - train_crnn.py[line:99] - INFO: step:4900, total loss: 25.648781
+2018-08-10 06:42:19,521 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:42:21,637 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:43:41,338 - train_crnn.py[line:99] - INFO: step:4920, total loss: 19.154200
+2018-08-10 06:45:01,604 - train_crnn.py[line:99] - INFO: step:4940, total loss: 22.273140
+2018-08-10 06:46:21,072 - train_crnn.py[line:99] - INFO: step:4960, total loss: 21.194080
+2018-08-10 06:47:41,480 - train_crnn.py[line:99] - INFO: step:4980, total loss: 19.297531
+2018-08-10 06:49:01,882 - train_crnn.py[line:99] - INFO: step:5000, total loss: 21.150471
+2018-08-10 06:49:01,882 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:49:04,403 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:50:24,290 - train_crnn.py[line:99] - INFO: step:5020, total loss: 17.709023
+2018-08-10 06:51:43,981 - train_crnn.py[line:99] - INFO: step:5040, total loss: 20.922819
+2018-08-10 06:53:04,059 - train_crnn.py[line:99] - INFO: step:5060, total loss: 25.803993
+2018-08-10 06:54:23,708 - train_crnn.py[line:99] - INFO: step:5080, total loss: 17.386612
+2018-08-10 06:55:43,966 - train_crnn.py[line:99] - INFO: step:5100, total loss: 15.517361
+2018-08-10 06:55:43,966 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 06:55:44,205 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 06:57:06,750 - train_crnn.py[line:99] - INFO: step:5120, total loss: 20.039640
+2018-08-10 06:58:26,638 - train_crnn.py[line:99] - INFO: step:5140, total loss: 22.941132
+2018-08-10 06:59:46,855 - train_crnn.py[line:99] - INFO: step:5160, total loss: 22.881535
+2018-08-10 07:01:08,099 - train_crnn.py[line:99] - INFO: step:5180, total loss: 24.204628
+2018-08-10 07:02:28,326 - train_crnn.py[line:99] - INFO: step:5200, total loss: 12.009399
+2018-08-10 07:02:28,326 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:02:29,399 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:02:29,414 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 07:02:30,196 - train_crnn.py[line:118] - INFO: epoch:16, train accuracy: 0.812362
+2018-08-10 07:02:56,112 - train_crnn.py[line:119] - INFO: epoch:16, val accuracy: 0.745122
+2018-08-10 07:03:50,531 - train_crnn.py[line:99] - INFO: step:5220, total loss: 17.757992
+2018-08-10 07:05:10,660 - train_crnn.py[line:99] - INFO: step:5240, total loss: 16.401972
+2018-08-10 07:06:30,738 - train_crnn.py[line:99] - INFO: step:5260, total loss: 15.847931
+2018-08-10 07:07:50,661 - train_crnn.py[line:99] - INFO: step:5280, total loss: 17.475807
+2018-08-10 07:09:11,001 - train_crnn.py[line:99] - INFO: step:5300, total loss: 19.698267
+2018-08-10 07:09:11,001 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:09:11,933 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:10:35,285 - train_crnn.py[line:99] - INFO: step:5320, total loss: 15.561054
+2018-08-10 07:11:54,736 - train_crnn.py[line:99] - INFO: step:5340, total loss: 28.316879
+2018-08-10 07:13:14,555 - train_crnn.py[line:99] - INFO: step:5360, total loss: 18.788101
+2018-08-10 07:14:34,433 - train_crnn.py[line:99] - INFO: step:5380, total loss: 16.112400
+2018-08-10 07:15:54,820 - train_crnn.py[line:99] - INFO: step:5400, total loss: 16.749235
+2018-08-10 07:15:54,820 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:15:56,626 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:17:18,702 - train_crnn.py[line:99] - INFO: step:5420, total loss: 15.346474
+2018-08-10 07:18:39,452 - train_crnn.py[line:99] - INFO: step:5440, total loss: 15.790998
+2018-08-10 07:19:59,138 - train_crnn.py[line:99] - INFO: step:5460, total loss: 22.850468
+2018-08-10 07:21:19,474 - train_crnn.py[line:99] - INFO: step:5480, total loss: 14.385569
+2018-08-10 07:22:39,950 - train_crnn.py[line:99] - INFO: step:5500, total loss: 18.617516
+2018-08-10 07:22:39,950 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:22:41,123 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:24:03,448 - train_crnn.py[line:99] - INFO: step:5520, total loss: 12.154325
+2018-08-10 07:24:22,869 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 07:24:23,655 - train_crnn.py[line:118] - INFO: epoch:17, train accuracy: 0.847128
+2018-08-10 07:24:43,415 - train_crnn.py[line:119] - INFO: epoch:17, val accuracy: 0.795642
+2018-08-10 07:25:24,026 - train_crnn.py[line:99] - INFO: step:5540, total loss: 14.380208
+2018-08-10 07:26:44,508 - train_crnn.py[line:99] - INFO: step:5560, total loss: 20.335285
+2018-08-10 07:28:04,454 - train_crnn.py[line:99] - INFO: step:5580, total loss: 15.009867
+2018-08-10 07:29:24,244 - train_crnn.py[line:99] - INFO: step:5600, total loss: 18.176308
+2018-08-10 07:29:24,245 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:29:24,600 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:30:46,662 - train_crnn.py[line:99] - INFO: step:5620, total loss: 25.978481
+2018-08-10 07:32:07,220 - train_crnn.py[line:99] - INFO: step:5640, total loss: 14.104359
+2018-08-10 07:33:27,344 - train_crnn.py[line:99] - INFO: step:5660, total loss: 21.287689
+2018-08-10 07:34:46,981 - train_crnn.py[line:99] - INFO: step:5680, total loss: 19.230629
+2018-08-10 07:36:19,661 - train_crnn.py[line:99] - INFO: step:5700, total loss: 15.883572
+2018-08-10 07:36:19,661 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:36:20,682 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:37:45,646 - train_crnn.py[line:99] - INFO: step:5720, total loss: 18.596823
+2018-08-10 07:39:07,543 - train_crnn.py[line:99] - INFO: step:5740, total loss: 15.185120
+2018-08-10 07:40:28,572 - train_crnn.py[line:99] - INFO: step:5760, total loss: 16.835571
+2018-08-10 07:41:49,772 - train_crnn.py[line:99] - INFO: step:5780, total loss: 15.913483
+2018-08-10 07:43:11,256 - train_crnn.py[line:99] - INFO: step:5800, total loss: 13.675413
+2018-08-10 07:43:11,256 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:43:13,055 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:44:35,427 - train_crnn.py[line:99] - INFO: step:5820, total loss: 14.397035
+2018-08-10 07:45:56,966 - train_crnn.py[line:99] - INFO: step:5840, total loss: 12.424623
+2018-08-10 07:46:36,913 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 07:46:37,697 - train_crnn.py[line:118] - INFO: epoch:18, train accuracy: 0.859860
+2018-08-10 07:46:43,122 - train_crnn.py[line:119] - INFO: epoch:18, val accuracy: 0.836412
+2018-08-10 07:47:18,684 - train_crnn.py[line:99] - INFO: step:5860, total loss: 12.571829
+2018-08-10 07:48:39,924 - train_crnn.py[line:99] - INFO: step:5880, total loss: 20.714909
+2018-08-10 07:50:01,470 - train_crnn.py[line:99] - INFO: step:5900, total loss: 14.316496
+2018-08-10 07:50:01,471 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:50:02,018 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:51:24,864 - train_crnn.py[line:99] - INFO: step:5920, total loss: 14.861944
+2018-08-10 07:52:45,909 - train_crnn.py[line:99] - INFO: step:5940, total loss: 13.031170
+2018-08-10 07:54:07,287 - train_crnn.py[line:99] - INFO: step:5960, total loss: 17.181778
+2018-08-10 07:55:28,949 - train_crnn.py[line:99] - INFO: step:5980, total loss: 12.362011
+2018-08-10 07:56:50,618 - train_crnn.py[line:99] - INFO: step:6000, total loss: 16.501209
+2018-08-10 07:56:50,619 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 07:56:52,311 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 07:58:14,393 - train_crnn.py[line:99] - INFO: step:6020, total loss: 10.723967
+2018-08-10 07:59:34,760 - train_crnn.py[line:99] - INFO: step:6040, total loss: 11.598924
+2018-08-10 08:00:54,272 - train_crnn.py[line:99] - INFO: step:6060, total loss: 15.142712
+2018-08-10 08:02:14,769 - train_crnn.py[line:99] - INFO: step:6080, total loss: 13.195929
+2018-08-10 08:03:35,113 - train_crnn.py[line:99] - INFO: step:6100, total loss: 14.701946
+2018-08-10 08:03:35,113 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:03:35,678 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:04:57,278 - train_crnn.py[line:99] - INFO: step:6120, total loss: 14.420218
+2018-08-10 08:06:17,608 - train_crnn.py[line:99] - INFO: step:6140, total loss: 13.689455
+2018-08-10 08:07:38,115 - train_crnn.py[line:99] - INFO: step:6160, total loss: 16.247835
+2018-08-10 08:08:37,471 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 08:08:38,255 - train_crnn.py[line:118] - INFO: epoch:19, train accuracy: 0.885641
+2018-08-10 08:08:46,225 - train_crnn.py[line:119] - INFO: epoch:19, val accuracy: 0.864810
+2018-08-10 08:08:59,117 - train_crnn.py[line:99] - INFO: step:6180, total loss: 15.737429
+2018-08-10 08:10:19,092 - train_crnn.py[line:99] - INFO: step:6200, total loss: 13.985193
+2018-08-10 08:10:19,093 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:10:21,429 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:11:41,835 - train_crnn.py[line:99] - INFO: step:6220, total loss: 10.585137
+2018-08-10 08:13:01,699 - train_crnn.py[line:99] - INFO: step:6240, total loss: 11.345924
+2018-08-10 08:14:21,734 - train_crnn.py[line:99] - INFO: step:6260, total loss: 11.335040
+2018-08-10 08:15:41,906 - train_crnn.py[line:99] - INFO: step:6280, total loss: 9.403711
+2018-08-10 08:17:02,357 - train_crnn.py[line:99] - INFO: step:6300, total loss: 11.489055
+2018-08-10 08:17:02,369 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:17:02,618 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:18:24,465 - train_crnn.py[line:99] - INFO: step:6320, total loss: 9.464405
+2018-08-10 08:19:44,518 - train_crnn.py[line:99] - INFO: step:6340, total loss: 10.943714
+2018-08-10 08:21:05,449 - train_crnn.py[line:99] - INFO: step:6360, total loss: 13.866213
+2018-08-10 08:22:25,690 - train_crnn.py[line:99] - INFO: step:6380, total loss: 8.497189
+2018-08-10 08:23:46,005 - train_crnn.py[line:99] - INFO: step:6400, total loss: 8.281792
+2018-08-10 08:23:46,005 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:23:49,037 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:25:09,915 - train_crnn.py[line:99] - INFO: step:6420, total loss: 11.383205
+2018-08-10 08:26:29,539 - train_crnn.py[line:99] - INFO: step:6440, total loss: 12.363369
+2018-08-10 08:27:49,313 - train_crnn.py[line:99] - INFO: step:6460, total loss: 13.147205
+2018-08-10 08:29:10,326 - train_crnn.py[line:99] - INFO: step:6480, total loss: 12.498431
+2018-08-10 08:30:30,323 - train_crnn.py[line:99] - INFO: step:6500, total loss: 5.438372
+2018-08-10 08:30:30,323 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:30:32,890 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:30:32,906 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 08:30:33,726 - train_crnn.py[line:118] - INFO: epoch:20, train accuracy: 0.904842
+2018-08-10 08:30:51,126 - train_crnn.py[line:119] - INFO: epoch:20, val accuracy: 0.855211
+2018-08-10 08:31:53,727 - train_crnn.py[line:99] - INFO: step:6520, total loss: 8.955238
+2018-08-10 08:33:13,856 - train_crnn.py[line:99] - INFO: step:6540, total loss: 8.323985
+2018-08-10 08:34:33,850 - train_crnn.py[line:99] - INFO: step:6560, total loss: 8.412848
+2018-08-10 08:35:53,520 - train_crnn.py[line:99] - INFO: step:6580, total loss: 8.818176
+2018-08-10 08:37:13,583 - train_crnn.py[line:99] - INFO: step:6600, total loss: 10.824218
+2018-08-10 08:37:13,583 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:37:13,832 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:38:36,297 - train_crnn.py[line:99] - INFO: step:6620, total loss: 8.282850
+2018-08-10 08:39:56,111 - train_crnn.py[line:99] - INFO: step:6640, total loss: 17.117512
+2018-08-10 08:41:15,930 - train_crnn.py[line:99] - INFO: step:6660, total loss: 10.107876
+2018-08-10 08:42:38,246 - train_crnn.py[line:99] - INFO: step:6680, total loss: 8.687263
+2018-08-10 08:43:58,408 - train_crnn.py[line:99] - INFO: step:6700, total loss: 8.945132
+2018-08-10 08:43:58,408 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:43:59,203 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:45:21,360 - train_crnn.py[line:99] - INFO: step:6720, total loss: 8.387194
+2018-08-10 08:46:41,676 - train_crnn.py[line:99] - INFO: step:6740, total loss: 8.535213
+2018-08-10 08:48:01,981 - train_crnn.py[line:99] - INFO: step:6760, total loss: 12.964051
+2018-08-10 08:49:24,494 - train_crnn.py[line:99] - INFO: step:6780, total loss: 8.243149
+2018-08-10 08:50:45,305 - train_crnn.py[line:99] - INFO: step:6800, total loss: 10.073192
+2018-08-10 08:50:45,305 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:50:46,726 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:52:09,760 - train_crnn.py[line:99] - INFO: step:6820, total loss: 5.789212
+2018-08-10 08:52:29,516 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 08:52:30,293 - train_crnn.py[line:118] - INFO: epoch:21, train accuracy: 0.934749
+2018-08-10 08:52:43,410 - train_crnn.py[line:119] - INFO: epoch:21, val accuracy: 0.881103
+2018-08-10 08:53:30,544 - train_crnn.py[line:99] - INFO: step:6840, total loss: 7.413172
+2018-08-10 08:54:50,516 - train_crnn.py[line:99] - INFO: step:6860, total loss: 11.263071
+2018-08-10 08:56:10,071 - train_crnn.py[line:99] - INFO: step:6880, total loss: 8.393330
+2018-08-10 08:57:30,369 - train_crnn.py[line:99] - INFO: step:6900, total loss: 10.027147
+2018-08-10 08:57:30,370 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 08:57:31,897 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 08:58:53,645 - train_crnn.py[line:99] - INFO: step:6920, total loss: 14.936369
+2018-08-10 09:00:14,003 - train_crnn.py[line:99] - INFO: step:6940, total loss: 7.737473
+2018-08-10 09:01:34,244 - train_crnn.py[line:99] - INFO: step:6960, total loss: 12.055373
+2018-08-10 09:02:55,370 - train_crnn.py[line:99] - INFO: step:6980, total loss: 10.982316
+2018-08-10 09:04:15,576 - train_crnn.py[line:99] - INFO: step:7000, total loss: 8.716979
+2018-08-10 09:04:15,576 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:04:17,245 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 09:05:38,304 - train_crnn.py[line:99] - INFO: step:7020, total loss: 10.208088
+2018-08-10 09:06:58,389 - train_crnn.py[line:99] - INFO: step:7040, total loss: 8.292745
+2018-08-10 09:08:18,410 - train_crnn.py[line:99] - INFO: step:7060, total loss: 8.831936
+2018-08-10 09:09:38,227 - train_crnn.py[line:99] - INFO: step:7080, total loss: 8.766396
+2018-08-10 09:10:58,445 - train_crnn.py[line:99] - INFO: step:7100, total loss: 7.163539
+2018-08-10 09:10:58,446 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:11:00,283 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 09:12:21,955 - train_crnn.py[line:99] - INFO: step:7120, total loss: 8.131930
+2018-08-10 09:13:42,009 - train_crnn.py[line:99] - INFO: step:7140, total loss: 7.075943
+2018-08-10 09:14:21,436 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 09:14:22,212 - train_crnn.py[line:118] - INFO: epoch:22, train accuracy: 0.962323
+2018-08-10 09:14:41,554 - train_crnn.py[line:119] - INFO: epoch:22, val accuracy: 0.892444
+2018-08-10 09:15:02,274 - train_crnn.py[line:99] - INFO: step:7160, total loss: 6.860387
+2018-08-10 09:16:22,382 - train_crnn.py[line:99] - INFO: step:7180, total loss: 14.839520
+2018-08-10 09:17:42,314 - train_crnn.py[line:99] - INFO: step:7200, total loss: 8.219210
+2018-08-10 09:17:42,315 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:17:44,500 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 09:19:04,847 - train_crnn.py[line:99] - INFO: step:7220, total loss: 7.695848
+2018-08-10 09:20:24,893 - train_crnn.py[line:99] - INFO: step:7240, total loss: 7.507176
+2018-08-10 09:21:46,085 - train_crnn.py[line:99] - INFO: step:7260, total loss: 11.169838
+2018-08-10 09:23:06,437 - train_crnn.py[line:99] - INFO: step:7280, total loss: 6.466985
+2018-08-10 09:24:26,486 - train_crnn.py[line:99] - INFO: step:7300, total loss: 9.250401
+2018-08-10 09:24:26,486 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:24:27,386 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 09:25:49,001 - train_crnn.py[line:99] - INFO: step:7320, total loss: 5.466228
+2018-08-10 09:27:09,102 - train_crnn.py[line:99] - INFO: step:7340, total loss: 6.130580
+2018-08-10 09:28:29,553 - train_crnn.py[line:99] - INFO: step:7360, total loss: 8.374117
+2018-08-10 09:29:52,551 - train_crnn.py[line:99] - INFO: step:7380, total loss: 6.852563
+2018-08-10 09:31:13,107 - train_crnn.py[line:99] - INFO: step:7400, total loss: 8.239403
+2018-08-10 09:31:13,107 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:31:13,354 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
+2018-08-10 09:32:36,542 - train_crnn.py[line:99] - INFO: step:7420, total loss: 8.224960
+2018-08-10 09:33:57,255 - train_crnn.py[line:99] - INFO: step:7440, total loss: 7.732039
+2018-08-10 09:35:20,310 - train_crnn.py[line:99] - INFO: step:7460, total loss: 9.117172
+2018-08-10 09:36:20,149 - train_crnn.py[line:116] - INFO: compute accuracy...
+2018-08-10 09:36:20,935 - train_crnn.py[line:118] - INFO: epoch:23, train accuracy: 0.981743
+2018-08-10 09:36:21,152 - train_crnn.py[line:119] - INFO: epoch:23, train accuracy: 0.924517
+2018-08-10 09:36:41,616 - train_crnn.py[line:99] - INFO: step:7480, total loss: 8.143603
+2018-08-10 09:38:02,484 - train_crnn.py[line:99] - INFO: step:7500, total loss: 7.703884
+2018-08-10 09:38:02,484 - train_crnn.py[line:107] - INFO: saving model...
+2018-08-10 09:38:05,119 - train_crnn.py[line:112] - INFO: model saved at ./model/ckpt
