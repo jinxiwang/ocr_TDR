@@ -114,35 +114,38 @@ class Test_CRNN(object):
 
 
 if __name__ == "__main__":
+
+    test_img_list = ['/home/tony/ocr/test_data/00023.jpg']
     a = Test_CRNN()
+    a.test_img(test_img_list)
 
-    test_list = []
-    res_list = []
-    name_list = []
-
-    for i in range(0, 32):
-        test_list.append('/home/tony/ocr/test_data/%05d.jpg' % (i+945))
-        name = [('%05d' % (i+945))]
-        name_list.append(('%05d' % (i+945)))
-
-        if (i+1) % 32 == 0:
-            print('test....', (i+1) / 32)
-            res = a.test_img(test_list)
-            res = [i for i in res]
-            res_list.extend(res)
-            test_list.clear()
-
-
-    save = []
-
-    for i in range(len(name_list)):
-        res_dict = {}
-        res_dict[name_list[i]] = res_list[i]
-        save.append(res_dict)
-    print(save)
-
-    f = open('1.json', 'w')
-    f.write(str(save))
+    # test_list = []
+    # res_list = []
+    # name_list = []
+    #
+    # for i in range(0, 32):
+    #     test_list.append('/home/tony/ocr/test_data/%05d.jpg' % (i+945))
+    #     name = [('%05d' % (i+945))]
+    #     name_list.append(('%05d' % (i+945)))
+    #
+    #     if (i+1) % 32 == 0:
+    #         print('test....', (i+1) / 32)
+    #         res = a.test_img(test_list)
+    #         res = [i for i in res]
+    #         res_list.extend(res)
+    #         test_list.clear()
+    #
+    #
+    # save = []
+    #
+    # for i in range(len(name_list)):
+    #     res_dict = {}
+    #     res_dict[name_list[i]] = res_list[i]
+    #     save.append(res_dict)
+    # print(save)
+    #
+    # f = open('1.json', 'w')
+    # f.write(str(save))
 
 
     # for i in range(0, 977):

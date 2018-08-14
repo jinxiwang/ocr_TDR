@@ -184,12 +184,12 @@ def make_test_img():
 
 if __name__ == "__main__":
     # 处理train 数据集
-    # make_dataset()
-    # f = open('../data/dataset_label.txt', 'w')
-    # f.write(str(dataset_dict))
-    # f.close()
+    make_dataset()
+    f = open('../data/dataset_label.txt', 'w')
+    f.write(str(dataset_dict))
+    f.close()
 
 
     # 处理test数据集
-    make_test_img()
+    # make_test_img()
 

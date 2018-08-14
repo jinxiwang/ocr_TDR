@@ -33,7 +33,7 @@ class Analysis_Data(object):
         统计出现的单词数量
         :return:
         """
-        return self.csv_data.word.size
+        return self.csv_data.word.sort
 
     def analysis_which_greater(self, num):
         """
@@ -41,7 +41,7 @@ class Analysis_Data(object):
         :param num:
         :return:
         """
-        greater = self.csv_data.loc[(self.csv_data["word_num"] > num)]
+        greater = self.csv_data.loc[(self.csv_data["word_num"] < num)]
         all = self.csv_data.word_num.size
         num = greater.word_num.size
         print(num,all-num)
@@ -163,6 +163,18 @@ class Analysis_Data(object):
         csv_data = pd.DataFrame({'word': words_list, 'word_num': words_num_list})
         return csv_data
 
+    def pie_chart(self):
+        labels = 'number > 30', 'number < 30'
+        sizes = [883, 1791]
+        explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+        fig1, ax1 = plt.subplots()
+        ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+                shadow=True, startangle=90)
+        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+        plt.show()
+
 if __name__ == '__main__':
     read = open("../data/word_num_dict.txt", 'r')
     data = read.read()
@@ -170,12 +182,14 @@ if __name__ == '__main__':
 
     a = Analysis_Data(data_dict)
     #a.analysis_img_mess()
-    a.analysis_width_label()
+    #a.analysis_width_label()
+    #a.pie_chart()
 
     # 查看出现次数大于num的汉字个数
-    # print(a.analysis_words_num())
-    # greater, num = a.analysis_which_greater(1)
-    # a.analysis_data_distribution()
+    #print(a.analysis_words_num())
+    greater, num = a.analysis_which_greater(2)
+    print([i for i in greater.word])
+    #a.analysis_data_distribution()
 
     # 查看label长度
     # length, keys = a.analysis_longgest_label()
