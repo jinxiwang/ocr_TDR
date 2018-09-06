@@ -2,9 +2,12 @@
 Text recognition
 
 
+
 # 如何去测试
 
 1.加载模型，将模型放入./model/中
+
+download the model from https://pan.baidu.com/s/1yCxzZE0qugHL-FZRHeW3CA
 
 2.向test_img_list中添加需要测试的图片列表
 
